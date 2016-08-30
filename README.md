@@ -68,14 +68,14 @@ Please use 2 spaces to indent
 ##Continous integration
 - currently using travis CI to run the tests on every build and deploy to heroku on merges to master
 
-###Configuration variables
+##Configuration variables
 
 If you would like to edit or add config variables, .env must be updated but two other places must be modified. The globals in `~/config/index.js`. and specified as well in `~/.eslintrc`.
 
-### Server
+## Server
 
 This starter kit comes packaged with an Koa server. The purpose of the server is to provide `webpack-dev-middleware`, `webpack-hot-middleware` for hot module replacement, and basic auth for the server.
 
 ##Starter kit
 
-Special thanks to davezuko, this repository is based on https://github.com/davezuko/react-redux-starter-kit. 
+Special thanks to davezuko, this repository is based on https://github.com/davezuko/react-redux-starter-kit. See it's README for more information.
