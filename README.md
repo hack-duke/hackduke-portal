@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/hack-duke/hackduke-admin.svg?branch=master)](https://travis-ci.org/hack-duke/hackduke-admin)
 
 ##Overview
-This admin frontend serves to handle user interfaction with the registration backend. Currently, it displays the participants for an event and allows the user to modify them through submiting typeforms. In the future, there should be a dashboard to visualize statistics for all the events. 
+This admin frontend serves to handle user interfaction with the registration backend. Currently, it displays the participants for an event and allows the user to modify them through submiting typeforms. In the future, there should be a dashboard to visualize statistics for all the events. Currently, chrome is the only supported browser.
 
 ## Project Structure
 ```
@@ -42,6 +42,9 @@ $ cp ../hackduke-secrets/.env-hackduke-admin .env  # assuming the projects share
 $ npm install                                      # Install project dependencies
 $ npm run serve                                    # Compile and launch
 ```
+
+NOTE: If you are having trouble with localhost redirecting to https, please use the ip and port url instead.
+
 Additional scripts are here:
 
 |`npm run <script>`|Description|
