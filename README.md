@@ -35,7 +35,7 @@
 ```
 ## Getting started
 ```bash
-$ cp ../hackduke-secrets/.env-hackduke-admin .env # (assuming that hackduke-secrets and hackduke-admin share the same parent folder)
+$ cp ../hackduke-secrets/.env-hackduke-admin .env # assuming the projects share the same parent folder
 $ npm install                   # Install project dependencies
 $ npm run serve                 # Compile and launch
 ```
