@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.org/hack-duke/hackduke-admin.svg?branch=master)](https://travis-ci.org/hack-duke/hackduke-admin)
 
+##Overview
+This admin frontend serves to handle user interfaction with the registration backend. Currently, it displays the participants for an event and allows the user to modify them through submiting typeforms. In the future, there should be a dashboard to visualize statistics for all the events. 
+
 ## Project Structure
 ```
 ├── bin                      # Build/Start scripts
