@@ -20,7 +20,7 @@ This admin frontend serves to handle user interfaction with the registration bac
 │   ├── components           # Reusable Presentational Components
 │   ├── containers           # Reusable Container Components
 │   ├── layouts              # Components that dictate major page structure
-│   ├── redux                # "Ducks" location...not part of a route
+│   ├── redux                # Reducers/constants/actions not part of a route
 │   ├── routes               # Main route definitions and async split points
 │   │   ├── index.js         # Bootstrap main application routes with store
 │   │   └── Home             # Fractal route
