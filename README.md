@@ -66,10 +66,10 @@ Make sure to squash all commits upon merge, using Github's "squash and merge" fu
 Please use 2 spaces to indent
 
 ##Deployment instructions
-- currently using heroku for deployment
+Currently using heroku for deployment
 
 ##Continous integration
-- currently using travis CI to run the tests on every build and deploy to heroku on merges to master
+Currently using travis CI to run the tests on every build and deploy to heroku on merges to master
 
 ##Configuration variables
 
