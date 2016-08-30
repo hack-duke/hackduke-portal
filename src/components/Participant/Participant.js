@@ -45,8 +45,10 @@ class Participant extends React.Component {
     return {title: field, description: description}
   }
 
+  /* eslint eqeqeq: 0 */
+
   filterInfo (info) {
-    return info.filter(info => info['description'] !== null && info['description'] !== '')
+    return info.filter(info => info['description'] != null && info['description'] != '')
   }
 
   renderList (title, list) {

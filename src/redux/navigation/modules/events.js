@@ -31,15 +31,17 @@ export function updateCurrEvent (event) {
   }
 }
 
+/* eslint eqeqeq: 0 */
+
 export const selectCurrEventType = (eventType) => {
   return (dispatch, getState) => {
     const eventsState = getState().events
     const currEvents = eventsState.events
     for (let i = 0; i < currEvents.length; i++) {
       let currEvent = currEvents[i]
-      if (currEvent['event_type'] === eventType &&
-          currEvent['season'] === eventsState.currSeason &&
-          currEvent['year'] === eventsState.currYear) {
+      if (currEvent['event_type'] == eventType &&
+          currEvent['season'] == eventsState.currSeason &&
+          currEvent['year'] == eventsState.currYear) {
         dispatch(updateCurrEvent(currEvent))
       }
     }
