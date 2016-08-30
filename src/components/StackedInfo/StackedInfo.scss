@@ -1,0 +1,21 @@
+@import 'src/styles/base';
+
+.container {
+	width: 100%;
+}	
+
+.section {
+	margin-bottom: 20px;
+}
+
+.question {
+	font-size: 13px;
+	padding-bottom: 10px;
+	display: block;
+	opacity: 0.7;
+}
+
+.answer {
+	font-size: 13px;
+	display: block;
+}

@@ -1,0 +1,19 @@
+sudo: false
+language: node_js
+node_js:
+- '6'
+cache:
+  directories:
+  - node_modules
+install:
+- npm install
+script:
+- npm run lint
+- npm run test
+deploy:
+  provider: heroku
+  api_key:
+    secure: F/b694nVLlW5GCqtnr8oPPMZvRKcPyEK69UVYiNWl5m0dkGInix/heXPvgkjw4U7sjgwW6l5ZWh1BBiQ8OimBSmqnYPxsfQvInGFgmGb9qqNtaHvaDn61gH/mFsM0uR7NdJC6rSfCXYyecfpabQPRs5n+2J044r0fDKVcgxD2R1+sdbMJKNFsVHaaxmWiGyHDfWsiRHVsklaINBcDUSKLbAq5UvYF1LQqATLMct3wmHuKarr3UWt0pMZiLr18BAKxsbuEP+ywGlhLpDV0yRIGdKg6jWrPF14SRpEEjdMonnhM9dAzSAuLawGmzX/zXuAEsKRxYshgatZhLuO+ndjHqXB72F7SdM03GSxJ1xzvyQ3Ht/GM01u57TWvGPIwPZhUzPiBkAV946QkVhCwOax9U1Zaxrne+VchLSbCzx2CLJ4iw96YpU5v2IuuMkIEfAJbjAqBEEBAMJfuhtpQabVmTVmtqG/qqhpyom0TsUCEK3FHKqWKpWbDZao9WPsenBgEjRf6oizR1tkHHQnUqSXzxdSNWtND9BTu3eq6ONoD6MImyulB8/AW/11rgp4V4i2Ot+whAhyHTgKRzS6cYjbu3mnJhg0rFWrJSawBS/68iug68rQLKOve5ng+vkvb5sbd2TaTkkf2vyDpFdLUiMM9g+GUFvjVUfNC0IA5Abzptw=
+  app: hackduke-admin
+  on:
+    repo: hack-duke/hackduke-admin

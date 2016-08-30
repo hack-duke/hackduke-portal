@@ -1,0 +1,35 @@
+{
+  "parser"  : "babel-eslint",
+  "extends" : [
+    "standard",
+    "standard-react"
+  ],
+  "plugins": [
+    "babel",
+    "react",
+    "promise"
+  ],
+  "env"     : {
+    "browser" : true
+  },
+  "globals" : {
+    "__DEV__"      : false,
+    "__PROD__"     : false,
+    "__DEBUG__"    : false,
+    "__COVERAGE__" : false,
+    "__BASENAME__" : false,
+    "PUSHER_APP_KEY" : false,
+    "API_URL"        : false,
+    "BASIC_AUTH_USERNAME": false,
+    "BASIC_AUTH_PASSWORD": false
+  },
+  "rules": {
+    "semi" : [2, "never"],
+    "max-len": [2, 120, 2],
+    "generator-star-spacing": 0,
+    "babel/generator-star-spacing": 1,
+    "jsx-quotes": [2, "prefer-single"],
+    "react/jsx-no-bind": 0,
+    "no-return-assign": 0
+  }
+}

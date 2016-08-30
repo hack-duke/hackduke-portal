@@ -1,0 +1,25 @@
+@import 'src/styles/base';
+
+.navMenu {
+	overflow: auto;
+	display: inline-block;
+	background-color: $navLight;
+	height: 100vh;
+	width: $navMenuWidth;
+	position: fixed;
+}
+
+.linkElement, .linkElement:active, .linkElement:visited, .linkElement:link {
+	background-color: $navLight;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	height: 75px;
+	line-height: 75px;
+	color: #FFFFFF;
+	opacity: 0.8;
+}
+
+.linkElement:hover {
+	background-color: $navDark;
+}

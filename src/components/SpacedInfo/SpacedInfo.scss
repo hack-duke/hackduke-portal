@@ -1,0 +1,27 @@
+@import 'src/styles/base';
+
+.container {
+	display: inline-block;
+	width: 100%;
+	transform: translateX(-20px);
+}
+
+.rowContainer {
+	display: flex;
+}
+
+.title {
+	opacity: 0.7;
+}
+
+.description {
+
+}
+
+.section {
+	padding-bottom: 30px;
+	padding-left: 20px;
+	display: inline-block;
+	width: 50%;
+}
+
