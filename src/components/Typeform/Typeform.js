@@ -107,8 +107,10 @@ class Typeform extends React.Component {
     currentFrame.style.display = 'block'
   }
 
+  /* eslint eqeqeq: 0 */
+
   handleTypeformActiveDisplay (activeIndex) {
-    return this.state.activeIndices[this.props.typeformActiveIndex] === activeIndex ? 'block' : 'none'
+    return this.state.activeIndices[this.props.typeformActiveIndex] == activeIndex ? 'block' : 'none'
   }
 
   formBaseUrl (activeIndex) {
