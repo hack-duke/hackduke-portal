@@ -9,7 +9,7 @@ import RoleRoute from './Role'
 export const createRoutes = (store) => ({
   path: '/',
   component: CoreLayout,
-  indexRoute: Home,
+        indexRoute: Home,
   childRoutes: [
     RoleRoute(store)
   ]
