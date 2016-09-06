@@ -2,6 +2,7 @@
 import CoreLayout from '../layouts/CoreLayout/CoreLayout'
 import Home from './Home'
 import RoleRoute from './Role'
+import LoginRoute from './Login'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -9,9 +10,10 @@ import RoleRoute from './Role'
 export const createRoutes = (store) => ({
   path: '/',
   component: CoreLayout,
-        indexRoute: Home,
+  indexRoute: Home,
   childRoutes: [
-    RoleRoute(store)
+    RoleRoute(store),
+    LoginRoute(store)
   ]
 })
 

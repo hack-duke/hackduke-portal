@@ -21,6 +21,7 @@ class NavMenu extends React.Component {
     return (
       <div className={classes.navMenu}>
         <IndexLink className={classes.linkElement} to={'/'}> Home </IndexLink>
+        <IndexLink className={classes.linkElement} to={'/login'}> Login </IndexLink>
         <EventNavElement title={'Events'} elements={this.props.events}
           click={this.handleEventClick.bind(this)}
           year={this.props.currYear}
