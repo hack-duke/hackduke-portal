@@ -108,7 +108,7 @@ class Login extends React.Component {
     }
   }
 
-  handleSecondType () {
+  handleFirstType () {
     return this.props.authStatus === AuthenticationStatus.TEMPORARY ? 'password' : 'text'
   }
 
@@ -123,7 +123,7 @@ class Login extends React.Component {
           </div>
           <input id='first'
             className={classes.input}
-            type={this.handleSecondType()}
+            type={this.handleFirstType()}
             placeholder={this.handleFirstPlaceholder()} />
           {this.state.sendPassword ? null
             : (<input id='second'
