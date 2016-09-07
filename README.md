@@ -1,7 +1,7 @@
 # HackDuke Portal
 
 ##Overview
-This admin frontend serves to handle user interfaction with the registration backend. Currently, it displays the participants for an event and allows the user to modify them by submitting typeforms. In the future, there should be a dashboard to visualize statistics for all the events. Chrome is currently the only supported browser.
+TODO
 
 ## Project Structure
 ```
@@ -36,9 +36,9 @@ This admin frontend serves to handle user interfaction with the registration bac
 ```
 ## Getting started
 ```bash
-$ cp ../hackduke-secrets/.env-hackduke-admin .env  # assuming the projects share the same parent folder
-$ npm install                                      # Install project dependencies
-$ npm run serve                                    # Compile and launch
+$ cp ../hackduke-secrets/.env-hackduke-portal .env  # assuming the projects share the same parent folder
+$ npm install                                       # Install project dependencies
+$ npm run serve                                     # Compile and launch
 ```
 
 NOTE: If you are having trouble with localhost redirecting to https, please use the ip and port url instead.
