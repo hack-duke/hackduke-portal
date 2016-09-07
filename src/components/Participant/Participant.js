@@ -5,7 +5,6 @@ import StackedInfo from 'components/StackedInfo'
 import LinkInfo from 'components/LinkInfo'
 import { personalInfoFields, linkFields } from 'extensions/participantUtils'
 import { dehumanize, humanize } from 'extensions/stringUtils'
-import { tagColorMap } from 'extensions/tagUtils'
 
 class Participant extends React.Component {
 
@@ -16,9 +15,7 @@ class Participant extends React.Component {
 
   static propTypes = {
     participant: React.PropTypes.object.isRequired,
-    person: React.PropTypes.object.isRequired,
-    roleType: React.PropTypes.string.isRequired,
-    clickEdit: React.PropTypes.func.isRequired
+    person: React.PropTypes.object.isRequired
   }
 
   componentDidMount () {
@@ -66,17 +63,10 @@ class Participant extends React.Component {
   render () {
     return (
       <div className={classes.container}>
-        <div className={classes.leftPadding}>
 
-          <div className={classes.spacedInfoSeparator}>
+        <div className={classes.leftPadding}>
+          <div className={classes.spacedInfoSeparator} style={{'marginTop': '0', 'paddingTop': '50px'}}>
             {humanize(`${this.props.person['first_name']} ${this.props.person['last_name']}`)}
-            <span>
-              <button className={classes.edit}
-                style={{'backgroundColor': `${tagColorMap[this.props.roleType]}`}}
-                onClick={() => this.props.clickEdit()}>
-                Edit
-              </button>
-            </span>
           </div>
           <SpacedInfo titles={this.state.personalInfo.map(info => info['title'])}
             descriptions={this.state.personalInfo.map(info => info['description'])} />
@@ -102,6 +92,7 @@ class Participant extends React.Component {
             <StackedInfo text={this.props.participant['custom']} />
           ) : null}
         </div>
+
       </div>
     )
   }

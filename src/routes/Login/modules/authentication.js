@@ -103,7 +103,7 @@ export const setPassword = (email, password) => {
 export const login = () => {
   console.log('hi')
   return (dispatch, getState) => {
-    dispatch(push('/'))
+    dispatch(push('/application'))
   }
 }
 

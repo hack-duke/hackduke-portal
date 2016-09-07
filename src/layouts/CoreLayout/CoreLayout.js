@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './CoreLayout.scss'
-import NavMenu from 'redux/navigation/containers/navMenuContainer'
+import NavMenu from 'components/NavMenu'
 import '../../styles/core.scss'
 
 export const CoreLayout = ({ children }) => (
