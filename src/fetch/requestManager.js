@@ -1,5 +1,3 @@
-import 'whatwg-fetch'
-
 export const fetchAPI = (method, body, route) => {
   let headers = new Headers()
   const base64 = require('base-64')

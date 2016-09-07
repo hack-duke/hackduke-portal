@@ -5,7 +5,6 @@ import { useRouterHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import createStore from './store/createStore'
 import AppContainer from './containers/AppContainer'
-import { fetchEvents } from 'redux/navigation/modules/events'
 
 // ========================================================
 // Browser History Setup
@@ -43,7 +42,6 @@ const MOUNT_NODE = document.getElementById('root')
 
 let render = () => {
   const routes = require('./routes/index').default(store)
-  store.dispatch(fetchEvents(2016, 'spring'))
 
   ReactDOM.render(
     <AppContainer
