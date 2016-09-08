@@ -162,7 +162,7 @@ const generateAuthenticationState = (body, state) => {
     localStorage.setItem('session', body['session_token'])
     loggedIn = true
     login()
-  } 
+  }
   return ({...state, fetching: false, authStatus: status, message: message, loggedIn: loggedIn})
 }
 
