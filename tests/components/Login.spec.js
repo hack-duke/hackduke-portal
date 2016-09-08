@@ -24,7 +24,7 @@ describe('(Component) Login', () => {
     }
     _wrapper = shallow(<Login {..._props} />)
   })
-
+   
   it('renders 2 inputs, 2 buttons, and a logo image with correct text given initial props', () => {
     expect(_wrapper.find('input').at(0).node.props.placeholder.trim()).to.eql('Email')
     expect(_wrapper.find('input').at(1).node.props.placeholder.trim()).to.eql('Password')

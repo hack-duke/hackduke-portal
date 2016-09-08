@@ -1,4 +1,3 @@
-import { injectReducer } from '../../store/reducers'
 
 export default (store) => ({
   path: '/login',
@@ -10,9 +9,6 @@ export default (store) => ({
       /*  Webpack - use require callback to define
           dependencies for bundling   */
       const Login = require('./containers/LoginContainer').default
-      const reducer = require('./modules/authentication').default
-
-      injectReducer(store, { key: 'authentication', reducer })
 
       /*  Return getComponent   */
       cb(null, Login)

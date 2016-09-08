@@ -11,8 +11,8 @@ class NavMenu extends React.Component {
   render () {
     return (
       <div className={classes.navMenu}>
-        <IndexLink className={classes.linkElement} to={'/application'}> Application </IndexLink>
         <IndexLink className={classes.linkElement} to={'/dashboard'}> Dashboard </IndexLink>
+        <IndexLink className={classes.linkElement} to={'/application'}> Application </IndexLink>
         <div onClick={this.props.logout}>
           <IndexLink className={classes.linkElement} to={'/login'}> Log out </IndexLink>
         </div>

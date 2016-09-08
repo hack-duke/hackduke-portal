@@ -12,6 +12,7 @@ class Login extends React.Component {
     this.handleButtonClick = this.handleButtonClick.bind(this)
     this.handleFirstChange = this.handleFirstChange.bind(this)
     this.handleSecondChange = this.handleSecondChange.bind(this)
+    this.handleEnter = this.handleEnter.bind(this)
   }
 
   static propTypes = {
@@ -26,16 +27,32 @@ class Login extends React.Component {
     fetching: React.PropTypes.bool.isRequired
   }
 
+  handleEnter (event) {
+    if (event.keyCode === 13) {
+      this.handleButtonClick()
+    }
+  }
+
+  componentWillMount () {
+    document.addEventListener('keydown', this.handleEnter, false)
+  }
+
+  componentWillUnmount () {
+    document.removeEventListener('keydown', this.handleEnter, false)
+  }
+
   componentWillReceiveProps (nextProps) {
     if (nextProps.authStatus === AuthenticationStatus.TEMPORARY) {
       this.setState({firstValue: '', secondValue: ''})
     } else if (nextProps.authStatus === AuthenticationStatus.PERMANENT) {
+      this.props.updateMessage('')
       this.props.login()
     }
-    this.setState({showMessage: true})
   }
 
   handleButtonClick () {
+    this.props.updateMessage('')
+    this.setState({showMessage: true})
     const first = this.state.firstValue
     if (this.state.sendPassword) {
       this.props.resetPassword(first)
@@ -47,7 +64,8 @@ class Login extends React.Component {
         this.props.setPassword(localStorage.getItem('email'), first)
       }
     } else {
-      this.props.authenticate(first, this.state.secondValue)
+      const second = this.state.secondValue
+      this.props.authenticate(first, second)
     }
   }
 
@@ -129,7 +147,7 @@ class Login extends React.Component {
               onChange={this.handleSecondChange}
               placeholder={this.handleSecondPlaceholder()} />)
           }
-          <button className={classes.loginButton} onClick={this.handleButtonClick}>
+          <button id='action' className={classes.loginButton} onClick={this.handleButtonClick}>
             {this.handleButtonText()}
           </button>
           <button className={classes.textButton} onClick={this.handlePasswordClick}> {this.state.bottomText}

@@ -44,10 +44,22 @@ export function requestAuthentication () {
   }
 }
 
-export function receiveAuthentication (body) {
+export function receiveAuthentication (body, dispatch) {
+  const status = checkAuthentication(body)
+  if (status === AuthenticationStatus.PERMANENT) {
+    localStorage.setItem('session', body['session_token'])
+    dispatch(login())
+  }
+  if (status === AuthenticationStatus.FAILURE || status === '') {
+    dispatch(logout())
+  }
   return {
     type: RECEIVE_AUTHENTICATION,
-    payload: body
+    payload: {
+      status,
+      message: checkMessage(status, body),
+      loggedIn: checkLoggedIn(status)
+    }
   }
 }
 
@@ -71,23 +83,32 @@ export function requestSetPassword () {
 }
 
 export function receiveSetPassword (body) {
+  const status = checkAuthentication(body)
+  if (status === AuthenticationStatus.PERMANENT) {
+    localStorage.setItem('session', body['session_token'])
+  }
   return {
     type: RECEIVE_SET_PASSWORD,
-    payload: body
+    payload: {
+      status,
+      message: checkMessage(status, body),
+      loggedIn: checkLoggedIn(status)
+    }
   }
 }
 
+/* eslint handle-callback-err: 0 */
+
 export const authenticate = (email, password) => {
-  localStorage.setItem('email', email)
   return (dispatch, getState) => {
-    if (email !== '' || password !== '') {
-      dispatch(requestAuthentication())
-      const sessionToken = localStorage.getItem('session')
-      const body = JSON.stringify({email: email, password: password, session_token: sessionToken})
-      fetchAPI('POST', body, 'people/authenticate')
-      .then(data => data.json())
-      .then(json => dispatch(receiveAuthentication(json)))
-    }
+    dispatch(requestAuthentication())
+    const sessionToken = localStorage.getItem('session')
+    localStorage.setItem('email', email)
+    const body = JSON.stringify({email: email, password: password, session_token: sessionToken})
+    fetchAPI('POST', body, 'people/authenticate')
+    .catch(error => dispatch(logout()))
+    .then(data => data.json())
+    .then(json => dispatch(receiveAuthentication(json, dispatch)))
   }
 }
 
@@ -113,13 +134,17 @@ export const setPassword = (email, password) => {
 
 export const login = () => {
   return (dispatch, getState) => {
-    dispatch(push('/application'))
+    dispatch(push('/dashboard'))
   }
 }
 
 export const logout = () => {
   return (dispatch, getState) => {
-    localStorage.setItem('session', '')
+    localStorage.removeItem('session')
+    localStorage.setItem('email', '')
+    dispatch(push('/login'))
+    dispatch(updateAuthStatus(''))
+    dispatch(updateMessage(''))
     dispatch(updateLoggedIn(false))
   }
 }
@@ -154,16 +179,12 @@ const checkAuthentication = (body) => {
   return AuthenticationStatus.FAILURE
 }
 
-const generateAuthenticationState = (body, state) => {
-  const status = checkAuthentication(body)
-  let message = status !== AuthenticationStatus.FAILURE ? body['success'] : body['errors']
-  let loggedIn = false
-  if (status === AuthenticationStatus.PERMANENT) {
-    localStorage.setItem('session', body['session_token'])
-    loggedIn = true
-    login()
-  }
-  return ({...state, fetching: false, authStatus: status, message: message, loggedIn: loggedIn})
+const checkMessage = (status, body) => {
+  return status !== AuthenticationStatus.FAILURE ? body['success'] : body['errors']
+}
+
+const checkLoggedIn = (status) => {
+  return status === AuthenticationStatus.PERMANENT
 }
 
 const AUTHENTICATION_ACTION_HANDLERS = {
@@ -177,7 +198,8 @@ const AUTHENTICATION_ACTION_HANDLERS = {
     return ({...state, fetching: true})
   },
   [RECEIVE_AUTHENTICATION]: (state, action) => {
-    return generateAuthenticationState(action.payload, state)
+    return ({...state, fetching: false, authStatus: action.payload.status,
+      message: action.payload.message, loggedIn: action.payload.loggedIn})
   },
   [RECEIVE_RESET_PASSWORD]: (state, action) => {
     const keys = Object.keys(action.payload)
@@ -186,7 +208,8 @@ const AUTHENTICATION_ACTION_HANDLERS = {
     return ({...state, fetching: false, message: message})
   },
   [RECEIVE_SET_PASSWORD]: (state, action) => {
-    return generateAuthenticationState(action.payload, state)
+    return ({...state, fetching: false, authStatus: action.payload.status,
+      message: action.payload.message, loggedIn: action.payload.loggedIn})
   },
   [UPDATE_AUTH_STATUS]: (state, action) => {
     return ({...state, authStatus: action.payload})

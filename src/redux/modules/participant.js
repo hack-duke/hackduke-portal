@@ -43,7 +43,8 @@ const PARTICIPANT_ACTION_HANDLERS = {
     return ({...state, fetching: true})
   },
   [RECEIVE_PARTICIPANT]: (state, action) => {
-    return ({...state, fetching: false, participant: action.payload})
+    const participant = Object.keys(action.payload).includes('errors') ? null : action.payload
+    return ({...state, fetching: false, participant: participant})
   }
 }
 
