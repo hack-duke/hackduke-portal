@@ -43,8 +43,7 @@ const MOUNT_NODE = document.getElementById('root')
 
 let render = () => {
   const routes = require('./routes/index').default(store)
-  
-  if(localStorage.getItem('session') !== '') {
+  if (localStorage.getItem('session') !== '') {
     store.dispatch(authenticate(localStorage.getItem('email'), ''))
   } else {
     store.dispatch(push('/login'))

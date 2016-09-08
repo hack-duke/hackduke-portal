@@ -12,7 +12,6 @@ export const CoreLayout = ({ children }) => {
   )
 }
 
-
 CoreLayout.propTypes = {
   children: React.PropTypes.element.isRequired
 }

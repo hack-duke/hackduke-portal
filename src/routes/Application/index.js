@@ -9,7 +9,6 @@ export default (store) => ({
     require.ensure([], (require) => {
       /*  Webpack - use require callback to define
           dependencies for bundling   */
-          
       const Application = require('./containers/ApplicationContainer').default
 
       store.dispatch(fetchParticipant(localStorage.getItem('email'), 'design_con', 2016, 'spring'))

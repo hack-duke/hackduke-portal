@@ -80,10 +80,10 @@ export function receiveSetPassword (body) {
 export const authenticate = (email, password) => {
   localStorage.setItem('email', email)
   return (dispatch, getState) => {
-    if(email !== '' || password !== '') {
+    if (email !== '' || password !== '') {
       dispatch(requestAuthentication())
       const sessionToken = localStorage.getItem('session')
-      const body = JSON.stringify({ email: email, password: password, session_token: sessionToken})
+      const body = JSON.stringify({email: email, password: password, session_token: sessionToken})
       fetchAPI('POST', body, 'people/authenticate')
       .then(data => data.json())
       .then(json => dispatch(receiveAuthentication(json)))
@@ -158,7 +158,7 @@ const generateAuthenticationState = (body, state) => {
   const status = checkAuthentication(body)
   let message = status !== AuthenticationStatus.FAILURE ? body['success'] : body['errors']
   let loggedIn = false
-  if (status == AuthenticationStatus.PERMANENT) {
+  if (status === AuthenticationStatus.PERMANENT) {
     localStorage.setItem('session', body['session_token'])
     loggedIn = true
     login()
