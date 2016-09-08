@@ -13,12 +13,12 @@ class StackedInfo extends React.Component {
       const answer = this.props.text[index + 1]
       return (
         <div className={classes.section} key={index}>
-          <div className={classes.question}>
+          <p className={classes.question}>
             {question}
-          </div>
-          <div className={classes.answer}>
+          </p>
+          <p className={classes.answer}>
             {answer}
-          </div>
+          </p>
         </div>
       )
     }

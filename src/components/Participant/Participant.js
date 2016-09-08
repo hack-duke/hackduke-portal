@@ -65,9 +65,9 @@ class Participant extends React.Component {
       <div className={classes.container}>
 
         <div className={classes.leftPadding}>
-          <div className={classes.spacedInfoSeparator} style={{'marginTop': '0', 'paddingTop': '50px'}}>
+          <h1 className={classes.spacedInfoSeparator} style={{'marginTop': '0', 'paddingTop': '50px'}}>
             {humanize(`${this.props.person['first_name']} ${this.props.person['last_name']}`)}
-          </div>
+          </h1>
           <SpacedInfo titles={this.state.personalInfo.map(info => info['title'])}
             descriptions={this.state.personalInfo.map(info => info['description'])} />
         </div>
@@ -75,7 +75,7 @@ class Participant extends React.Component {
         <div className={classes.lineSeparator} />
 
         <div className={classes.leftPadding}>
-          <div className={classes.spacedInfoSeparator}> More Info </div>
+          <h1 className={classes.spacedInfoSeparator}> More Info </h1>
           {this.renderList('Dietary Restrictions', this.props.participant['dietary_restrictions'].join(', '))}
           {this.renderList('Skills', this.props.participant['skills'].join(', '))}
           {Object.keys(this.state.linkInfo).length > 0 ? (
@@ -87,7 +87,7 @@ class Participant extends React.Component {
         <div className={classes.lineSeparator} />
 
         <div className={classes.leftPadding}>
-          <div className={classes.spacedInfoSeparator}> Custom Questions </div>
+          <h1 className={classes.spacedInfoSeparator}> Custom Questions </h1>
           {Object.keys(this.props.participant['custom']).length > 0 ? (
             <StackedInfo text={this.props.participant['custom']} />
           ) : null}

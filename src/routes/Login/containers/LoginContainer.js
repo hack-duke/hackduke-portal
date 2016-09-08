@@ -14,7 +14,6 @@ const mapDispatchToProps = {
 
 const mapStateToProps = (state) => ({
   authStatus: state.authentication.authStatus,
-  resetStatus: state.authentication.resetStatus,
   message: state.authentication.message,
   fetching: state.authentication.fetching
 })

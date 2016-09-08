@@ -1,5 +1,4 @@
 import React from 'react'
-import { bindActionCreators } from 'redux'
 import Participant from 'components/Participant'
 import StackedInfo from 'components/StackedInfo'
 import SpacedInfo from 'components/SpacedInfo'
@@ -39,19 +38,12 @@ describe('(Component) Participant', () => {
       },
       person: {'first_name': 'George', 'email': 'george.smith@gmail.com'},
       roleType: 'participant accepted',
-      clickEdit: _spies.clickEdit = sinon.spy()
     }
     _wrapper = shallow(<Participant {..._props} />)
   })
 
   it('has 3 spaced info seperators, including one with the person\'s name', () => {
     expect(_wrapper.find('.' + classes.spacedInfoSeparator)).to.have.length(3)
-  })
-
-  it('has an edit button that calls clickEdit', () => {
-    const editButton = _wrapper.find('.' + classes.edit)
-    editButton.simulate('click')
-    _spies.clickEdit.should.have.been.called
   })
 
   it('always has a <SpacedInfo />', () => {

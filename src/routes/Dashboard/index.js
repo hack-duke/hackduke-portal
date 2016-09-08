@@ -1,4 +1,3 @@
-import { injectReducer } from '../../store/reducers'
 import { fetchParticipant } from 'redux/modules/participant'
 
 export default (store) => ({

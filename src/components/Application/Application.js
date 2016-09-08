@@ -1,11 +1,11 @@
 import React from 'react'
-import classes from './Application.scss'
+// import classes from './Application.scss'
 import Participant from 'components/Participant'
 
 class Application extends React.Component {
 
   static propTypes = {
-    participant: React.PropTypes.object.isRequired,
+    participant: React.PropTypes.object,
     fetchParticipant: React.PropTypes.func.isRequired
   }
 
@@ -13,8 +13,8 @@ class Application extends React.Component {
     return (
       <div>
         {this.props.participant ? (
-        <Participant participant={this.props.participant['role']}
-                     person={this.props.participant['person']} />
+          <Participant participant={this.props.participant['role']}
+            person={this.props.participant['person']} />
         ) : null}
       </div>
     )

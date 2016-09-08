@@ -7,14 +7,15 @@ class Login extends React.Component {
 
   constructor () {
     super()
-    this.state = {sendPassword: false, showMessage: false}
+    this.state = {sendPassword: false, showMessage: false, firstValue: '', secondValue: ''}
     this.handlePasswordClick = this.handlePasswordClick.bind(this)
     this.handleButtonClick = this.handleButtonClick.bind(this)
+    this.handleFirstChange = this.handleFirstChange.bind(this)
+    this.handleSecondChange = this.handleSecondChange.bind(this)
   }
 
   static propTypes = {
     authStatus: React.PropTypes.string.isRequired,
-    resetStatus: React.PropTypes.bool.isRequired,
     message: React.PropTypes.string.isRequired,
     authenticate: React.PropTypes.func.isRequired,
     setPassword: React.PropTypes.func.isRequired,
@@ -27,8 +28,7 @@ class Login extends React.Component {
 
   componentWillReceiveProps (nextProps) {
     if (nextProps.authStatus === AuthenticationStatus.TEMPORARY) {
-      document.getElementById('first').value = ''
-      document.getElementById('second').value = ''
+      this.setState({firstValue: '', secondValue: ''})
     } else if (nextProps.authStatus === AuthenticationStatus.PERMANENT) {
       this.props.login()
     }
@@ -36,19 +36,18 @@ class Login extends React.Component {
   }
 
   handleButtonClick () {
-    const first = document.getElementById('first').value
+    const first = this.state.firstValue
     if (this.state.sendPassword) {
       this.props.resetPassword(first)
     } else if (this.props.authStatus === AuthenticationStatus.TEMPORARY) {
-      const second = document.getElementById('second').value
+      const second = this.state.secondValue
       if (first !== second) {
         this.props.updateMessage('The passwords must match!')
       } else {
         this.props.setPassword(localStorage.getItem('email'), first)
       }
     } else {
-      const second = document.getElementById('second').value
-      this.props.authenticate(first, second)
+      this.props.authenticate(first, this.state.secondValue)
     }
   }
 
@@ -77,39 +76,34 @@ class Login extends React.Component {
   handleButtonText () {
     if (this.state.sendPassword) {
       return 'Send password'
-    } else if (this.props.authStatus === AuthenticationStatus.TEMPORARY) {
-      return 'Set password'
     } else {
-      return 'Log in'
+      return this.props.authStatus === AuthenticationStatus.TEMPORARY ? 'Set password' : 'Log in'
     }
   }
 
   handleFirstPlaceholder () {
-    if (this.props.authStatus === AuthenticationStatus.TEMPORARY) {
-      return 'New Password'
-    } else {
-      return 'Email'
-    }
+    return this.props.authStatus === AuthenticationStatus.TEMPORARY ? 'New Password' : 'Email'
   }
 
   handleSecondPlaceholder () {
-    if (this.props.authStatus === AuthenticationStatus.TEMPORARY) {
-      return 'Confirm Password'
-    } else {
-      return 'Password'
-    }
+    return this.props.authStatus === AuthenticationStatus.TEMPORARY ? 'Confirm Password' : 'Password'
   }
 
   handlePasswordText () {
-    if (this.state.sendPassword || this.props.authStatus === AuthenticationStatus.TEMPORARY) {
-      return 'Back to log in'
-    } else {
-      return 'Forgot or need password?'
-    }
+    const needsBackToLogin = this.state.sendPassword || this.props.authStatus === AuthenticationStatus.TEMPORARY
+    return needsBackToLogin ? 'Back to log in' : 'Forgot or need password?'
   }
 
   handleSecondType () {
     return this.props.authStatus === AuthenticationStatus.TEMPORARY ? 'password' : 'text'
+  }
+
+  handleFirstChange (event) {
+    this.setState({firstValue: event.target.value})
+  }
+
+  handleSecondChange (event) {
+    this.setState({secondValue: event.target.value})
   }
 
   render () {
@@ -123,12 +117,16 @@ class Login extends React.Component {
           </div>
           <input id='first'
             className={classes.input}
+            value={this.state.firstValue}
             type={this.handleSecondType()}
+            onChange={this.handleFirstChange}
             placeholder={this.handleFirstPlaceholder()} />
           {this.state.sendPassword ? null
             : (<input id='second'
               className={classes.input}
               type='password'
+              value={this.state.secondValue}
+              onChange={this.handleSecondChange}
               placeholder={this.handleSecondPlaceholder()} />)
           }
           <button className={classes.loginButton} onClick={this.handleButtonClick}>
