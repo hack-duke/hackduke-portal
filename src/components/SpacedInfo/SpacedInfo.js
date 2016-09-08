@@ -18,12 +18,12 @@ class SpacedInfo extends React.Component {
     const description = this.props.descriptions[index]
     return (
       <div className={classes.section} key={index}>
-        <div className={classes.title}>
+        <p className={classes.title}>
           {humanize(title)}
-        </div>
-        <div className={classes.description} style={{'wordBreak': `${this.handleBreakStyle(title)}`}}>
+        </p>
+        <p className={classes.description} style={{'wordBreak': `${this.handleBreakStyle(title)}`}}>
           {description}
-        </div>
+        </p>
       </div>
     )
   }

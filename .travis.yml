@@ -10,10 +10,4 @@ install:
 script:
 - npm run lint
 - npm run test
-deploy:
-  provider: heroku
-  api_key:
-    secure: jmCTe+mJBwDAF+lhT8Y3PpNPIwxB/FoWsHwZAZ+1MuVUWeBZNJsrb2iNjMThHz8KTS3OeIARDiqxY8mA8ZWLErnzFVt9yLQfuxUCKAJo5CS3fq67i5/YWLynIKU9kuPZje6k6NskKkYl0T/uhJ2ni0bimrouLQB5nVu//59pCffG3jLlHhNxfPtQW07oED7q2MV4JQeoaaBhkvky8yXUj/lqkBEkinoIhfeYlUs/Pb90nPn/+nau3xtoKfSDPCUzlKuAuIguByZRa0Lwp29luOA9OKBOs4yuSZC/Cxo9oxpV0eR+0IYAzQ1SeIa87nKc385HaaHgli5Av6XVuHzh3EB6t/HyxRnFxI/dkra76Efxf9hscqmipaAvSqgTlqyGZhdYIWHdtEiRBt53eamckKfqnvk/Jlj2A1lRYQ1J118kVB2is/SSIXzQ8cNYw8D+DtenzJgf4DSHZ4E5fw6XYf1lxuekJTgYNyNO5D1jyyNIFzcv/5D78GZxFcqaeytvnCJdKcvSYCfwmeUoXf4Aik4xrLwlEABCm6QQRuCz2G6YK92m7HHDOr6mEynaNhbVrsrJu452iIt2gx9kUWgwnl58P6By3nGv5tBWoYh43egRkDN/jZ20F/KBGN5jXtRPq1r25cKcjgtDFLqDRiazqZwOK41T94+IxRczKvRI+6E=
-  app: hackduke-admin
-  on:
-    repo: hack-duke/hackduke-admin
+

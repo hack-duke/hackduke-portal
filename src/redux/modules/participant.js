@@ -25,7 +25,8 @@ export function receiveParticipant (participant) {
 export const fetchParticipant = (email, eventType, year, season) => {
   return (dispatch, getState) => {
     dispatch(requestParticipant())
-    const body = JSON.stringify({ email: email, season: season, year: year, event_type: eventType, role: 'participant'})
+    const body = JSON.stringify({ email: email, season: season, year: year,
+                                  event_type: eventType, role: 'participant' })
     fetchAPI('POST', body, 'people/role').then(data => data.json())
                           .then(json => dispatch(receiveParticipant(json)))
   }

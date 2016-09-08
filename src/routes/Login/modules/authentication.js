@@ -101,7 +101,6 @@ export const setPassword = (email, password) => {
 }
 
 export const login = () => {
-  console.log('hi')
   return (dispatch, getState) => {
     dispatch(push('/application'))
   }
@@ -130,22 +129,15 @@ export const AuthenticationStatus = {
 const checkAuthentication = (body) => {
   const keys = Object.keys(body)
   if (keys.includes('success') && keys.includes('authentication')) {
-    if (body['authentication'] === 'temporary') {
-      return AuthenticationStatus.TEMPORARY
-    } else if (body['authentication'] === 'permanent') {
-      return AuthenticationStatus.PERMANENT
-    }
+    return body['authentication']
   }
   return AuthenticationStatus.FAILURE
 }
 
 const generateAuthenticationState = (body, state) => {
   const status = checkAuthentication(body)
-  if (status !== AuthenticationStatus.FAILURE) {
-    return ({...state, fetching: false, authStatus: status, message: body['success'], resetStatus: false})
-  } else {
-    return ({...state, fetching: false, authStatus: status, message: body['errors'], resetStatus: false})
-  }
+  let message = status !== AuthenticationStatus.FAILURE ? body['success'] : body['errors']
+  return ({...state, fetching: false, authStatus: status, message: message})
 }
 
 const AUTHENTICATION_ACTION_HANDLERS = {
@@ -163,11 +155,9 @@ const AUTHENTICATION_ACTION_HANDLERS = {
   },
   [RECEIVE_RESET_PASSWORD]: (state, action) => {
     const keys = Object.keys(action.payload)
-    if (keys.includes('success')) {
-      return ({...state, fetching: false, message: action.payload['success'], resetStatus: true})
-    } else {
-      return ({...state, fetching: false, message: action.payload['errors'], resetStatus: false})
-    }
+    const body = action.payload
+    let message = keys.includes('success') ? body['success'] : body['errors']
+    return ({...state, fetching: false, message: message})
   },
   [RECEIVE_SET_PASSWORD]: (state, action) => {
     return generateAuthenticationState(action.payload, state)
@@ -180,7 +170,8 @@ const AUTHENTICATION_ACTION_HANDLERS = {
   }
 }
 
-const initialState = {fetching: false, authStatus: '', message: '', resetStatus: false}
+const initialState = {fetching: false, authStatus: '', message: ''}
+
 export default function authenticationReducer (state = initialState, action) {
   const handler = AUTHENTICATION_ACTION_HANDLERS[action.type]
   return handler ? handler(state, action) : state

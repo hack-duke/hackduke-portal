@@ -16,10 +16,10 @@ describe('(Component) LinkInfo', () => {
 
   it('renders 4 links with their respective titles', () => {
     const titles = _wrapper.instance().props.titles
-    expect(_wrapper.find('a').filterWhere(a => a.text() === titles[0]))
-    expect(_wrapper.find('a').filterWhere(a => a.text() === titles[1]))
-    expect(_wrapper.find('a').filterWhere(a => a.text() === titles[2]))
-    expect(_wrapper.find('a').filterWhere(a => a.text() === titles[3]))
+    expect(_wrapper.find('a').filterWhere(a => a.text() === titles[0])).to.have.length(1)
+    expect(_wrapper.find('a').filterWhere(a => a.text() === titles[1])).to.have.length(1)
+    expect(_wrapper.find('a').filterWhere(a => a.text() === titles[2])).to.have.length(1)
+    expect(_wrapper.find('a').filterWhere(a => a.text() === titles[3])).to.have.length(1)
   })
 
 
