@@ -45,12 +45,14 @@ class Login extends React.Component {
     if (nextProps.authStatus === AuthenticationStatus.TEMPORARY) {
       this.setState({firstValue: '', secondValue: ''})
     } else if (nextProps.authStatus === AuthenticationStatus.PERMANENT) {
+      this.props.updateMessage('')
       this.props.login()
     }
-    this.setState({showMessage: true})
   }
 
   handleButtonClick () {
+    this.props.updateMessage('')
+    this.setState({showMessage: true})
     const first = this.state.firstValue
     if (this.state.sendPassword) {
       this.props.resetPassword(first)
@@ -62,7 +64,8 @@ class Login extends React.Component {
         this.props.setPassword(localStorage.getItem('email'), first)
       }
     } else {
-      this.props.authenticate(first, this.state.secondValue)
+      const second = this.state.secondValue
+      this.props.authenticate(first, second)
     }
   }
 

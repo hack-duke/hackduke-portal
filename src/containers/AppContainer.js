@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { Router } from 'react-router'
 import { Provider } from 'react-redux'
 import { push } from 'react-router-redux'
+import { authenticate } from 'routes/Login/modules/authentication'
 
 class AppContainer extends Component {
   static propTypes = {
@@ -10,12 +11,16 @@ class AppContainer extends Component {
     store: PropTypes.object.isRequired
   }
 
-  handle404 () {
+  handleAuth () {
     const routeNames = ['/dashboard', '/login', '/application']
-    const currRoute = this.props.store.getState().router.locationBeforeTransitions.pathname
+    const store = this.props.store
+    const currRoute = store.getState().router.locationBeforeTransitions.pathname
     if (!routeNames.includes(currRoute)) {
-      this.props.store.dispatch(push('/login'))
+      store.dispatch(push('/login'))
     }
+    if (!store.getState().authentication.loggedIn) {
+      store.dispatch(authenticate(localStorage.getItem('email'), 'password'))
+    } 
   }
 
   render () {
@@ -24,7 +29,7 @@ class AppContainer extends Component {
     return (
       <Provider store={store}>
         <div style={{ height: '100%' }}>
-          <Router history={history} children={routes} onEnter={this.handle404()} />
+          <Router history={history} children={routes} onEnter={this.handleAuth()} />
         </div>
       </Provider>
     )

@@ -44,10 +44,25 @@ export function requestAuthentication () {
   }
 }
 
-export function receiveAuthentication (body) {
+export function receiveAuthentication (body, dispatch) {
+  const status = checkAuthentication(body)
+  let message = status !== AuthenticationStatus.FAILURE ? body['success'] : body['errors']
+  let loggedIn = false
+  if (status === AuthenticationStatus.PERMANENT) {
+    localStorage.setItem('session', body['session_token'])
+    loggedIn = true
+    dispatch(login())
+  }
+  if (status === AuthenticationStatus.FAILURE || status === '') {
+    dispatch(logout())
+  }
   return {
     type: RECEIVE_AUTHENTICATION,
-    payload: body
+    payload: {
+      status: status,
+      message: message,
+      loggedIn: loggedIn
+    }
   }
 }
 
@@ -78,16 +93,14 @@ export function receiveSetPassword (body) {
 }
 
 export const authenticate = (email, password) => {
-  localStorage.setItem('email', email)
   return (dispatch, getState) => {
-    if (email !== '' && password !== '') {
-      dispatch(requestAuthentication())
-      const sessionToken = localStorage.getItem('session')
-      const body = JSON.stringify({email: email, password: password, session_token: sessionToken})
-      fetchAPI('POST', body, 'people/authenticate')
-      .then(data => data.json())
-      .then(json => dispatch(receiveAuthentication(json)))
-    }
+    dispatch(requestAuthentication())
+    const sessionToken = localStorage.getItem('session')
+    localStorage.setItem('email', email)
+    const body = JSON.stringify({email: email, password: password, session_token: sessionToken})
+    fetchAPI('POST', body, 'people/authenticate')
+    .then(data => data.json())
+    .then(json => dispatch(receiveAuthentication(json, dispatch)))
   }
 }
 
@@ -119,7 +132,11 @@ export const login = () => {
 
 export const logout = () => {
   return (dispatch, getState) => {
-    localStorage.setItem('session', '')
+    localStorage.removeItem('session')
+    localStorage.setItem('email', '')
+    dispatch(push('/login'))
+    dispatch(updateAuthStatus(''))
+    dispatch(updateMessage(''))
     dispatch(updateLoggedIn(false))
   }
 }
@@ -154,18 +171,6 @@ const checkAuthentication = (body) => {
   return AuthenticationStatus.FAILURE
 }
 
-const generateAuthenticationState = (body, state) => {
-  const status = checkAuthentication(body)
-  let message = status !== AuthenticationStatus.FAILURE ? body['success'] : body['errors']
-  let loggedIn = false
-  if (status === AuthenticationStatus.PERMANENT) {
-    localStorage.setItem('session', body['session_token'])
-    loggedIn = true
-    login()
-  }
-  return ({...state, fetching: false, authStatus: status, message: message, loggedIn: loggedIn})
-}
-
 const AUTHENTICATION_ACTION_HANDLERS = {
   [REQUEST_AUTHENTICATION]: (state) => {
     return ({...state, fetching: true})
@@ -177,7 +182,8 @@ const AUTHENTICATION_ACTION_HANDLERS = {
     return ({...state, fetching: true})
   },
   [RECEIVE_AUTHENTICATION]: (state, action) => {
-    return generateAuthenticationState(action.payload, state)
+    return ({...state, fetching: false, authStatus: action.payload.status, 
+      message: action.payload.message, loggedIn: action.payload.loggedIn})
   },
   [RECEIVE_RESET_PASSWORD]: (state, action) => {
     const keys = Object.keys(action.payload)
