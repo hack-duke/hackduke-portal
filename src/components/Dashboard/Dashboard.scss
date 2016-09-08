@@ -1,3 +1,10 @@
+@import 'src/styles/base';
+
+.container {
+  padding-left: $navMenuWidth;
+}
+
+
 .status {
   text-align: center;
   font-size: 30px;

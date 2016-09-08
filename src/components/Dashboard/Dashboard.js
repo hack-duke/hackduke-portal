@@ -1,5 +1,6 @@
 import React from 'react'
 import classes from './Dashboard.scss'
+import NavMenu from 'redux/containers/NavMenuContainer'
 
 class Dashboard extends React.Component {
 
@@ -10,10 +11,15 @@ class Dashboard extends React.Component {
 
   render () {
     return (
-      <div className={classes.status} >
-        {this.props.participant ? (
-        `Your Status: ${this.props.participant['role']['status'].toUpperCase()}`
-        ) : null}
+      <div>
+        <NavMenu />
+        <div className={classes.container}>
+          <div className={classes.status} >
+            {this.props.participant ? (
+            `Your Status: ${this.props.participant['role']['status'].toUpperCase()}`
+            ) : null}
+          </div>
+        </div>
       </div>
     )
   }

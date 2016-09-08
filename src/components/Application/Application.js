@@ -1,6 +1,7 @@
 import React from 'react'
-// import classes from './Application.scss'
+import classes from './Application.scss'
 import Participant from 'components/Participant'
+import NavMenu from 'redux/containers/NavMenuContainer'
 
 class Application extends React.Component {
 
@@ -12,10 +13,13 @@ class Application extends React.Component {
   render () {
     return (
       <div>
-        {this.props.participant ? (
-          <Participant participant={this.props.participant['role']}
-            person={this.props.participant['person']} />
-        ) : null}
+        <NavMenu />
+        <div className={classes.container}>
+          {this.props.participant ? (
+            <Participant participant={this.props.participant['role']}
+              person={this.props.participant['person']} />
+          ) : null}
+        </div>
       </div>
     )
   }

@@ -11,10 +11,18 @@ export const REQUEST_SET_PASSWORD = 'REQUEST_SET_PASSWORD'
 export const RECEIVE_SET_PASSWORD = 'RECEIVE_SET_PASSWORD'
 export const UPDATE_AUTH_STATUS = 'UPDATE_AUTH_STATUS'
 export const UPDATE_MESSAGE = 'UPDATE_MESSAGE'
+export const UPDATE_LOGGED_IN = 'UPDATED_LOGGED_IN'
 
 // ------------------------------------
 // Actions
 // ------------------------------------
+
+export function updateLoggedIn (status) {
+  return {
+    type: UPDATE_LOGGED_IN,
+    payload: status
+  }
+}
 
 export function updateMessage (message) {
   return {
@@ -72,11 +80,14 @@ export function receiveSetPassword (body) {
 export const authenticate = (email, password) => {
   localStorage.setItem('email', email)
   return (dispatch, getState) => {
-    dispatch(requestAuthentication())
-    const body = JSON.stringify({ email: email, password: password })
-    fetchAPI('POST', body, 'people/authenticate')
-    .then(data => data.json())
-    .then(json => dispatch(receiveAuthentication(json)))
+    if (email !== '' || password !== '') {
+      dispatch(requestAuthentication())
+      const sessionToken = localStorage.getItem('session')
+      const body = JSON.stringify({email: email, password: password, session_token: sessionToken})
+      fetchAPI('POST', body, 'people/authenticate')
+      .then(data => data.json())
+      .then(json => dispatch(receiveAuthentication(json)))
+    }
   }
 }
 
@@ -106,6 +117,13 @@ export const login = () => {
   }
 }
 
+export const logout = () => {
+  return (dispatch, getState) => {
+    localStorage.setItem('session', '')
+    dispatch(updateLoggedIn(false))
+  }
+}
+
 export const actions = {
   requestAuthentication,
   receiveAuthentication,
@@ -113,11 +131,13 @@ export const actions = {
   receiveResetPassword,
   requestSetPassword,
   receiveSetPassword,
+  updateLoggedIn,
   resetPassword,
   setPassword,
   authenticate,
   updateAuthStatus,
-  login
+  login,
+  logout
 }
 
 export const AuthenticationStatus = {
@@ -137,7 +157,13 @@ const checkAuthentication = (body) => {
 const generateAuthenticationState = (body, state) => {
   const status = checkAuthentication(body)
   let message = status !== AuthenticationStatus.FAILURE ? body['success'] : body['errors']
-  return ({...state, fetching: false, authStatus: status, message: message})
+  let loggedIn = false
+  if (status === AuthenticationStatus.PERMANENT) {
+    localStorage.setItem('session', body['session_token'])
+    loggedIn = true
+    login()
+  }
+  return ({...state, fetching: false, authStatus: status, message: message, loggedIn: loggedIn})
 }
 
 const AUTHENTICATION_ACTION_HANDLERS = {
@@ -167,10 +193,13 @@ const AUTHENTICATION_ACTION_HANDLERS = {
   },
   [UPDATE_MESSAGE]: (state, action) => {
     return ({...state, message: action.payload})
+  },
+  [UPDATE_LOGGED_IN]: (state, action) => {
+    return ({...state, loggedIn: action.payload})
   }
 }
 
-const initialState = {fetching: false, authStatus: '', message: ''}
+const initialState = {fetching: false, authStatus: '', message: '', loggedIn: false}
 
 export default function authenticationReducer (state = initialState, action) {
   const handler = AUTHENTICATION_ACTION_HANDLERS[action.type]

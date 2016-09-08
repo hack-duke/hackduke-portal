@@ -10,7 +10,7 @@ import DashboardRoute from './Dashboard'
 export const createRoutes = (store) => ({
   path: '/',
   component: CoreLayout,
-  indexRoute: ApplicationRoute(store),
+  indexRoute: LoginRoute(store),
   childRoutes: [
     ApplicationRoute(store),
     LoginRoute(store),
