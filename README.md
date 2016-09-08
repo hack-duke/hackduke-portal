@@ -1,5 +1,7 @@
 # HackDuke Portal
 
+[![Build Status](https://travis-ci.org/hack-duke/hackduke-portal.svg?branch=master)](https://travis-ci.org/hack-duke/hackduke-portal)
+
 ##Overview
 This project provides a portal for applicants to HackDuke events so that users can see their application status and information as well as make changes to their information if necessary. 
 
