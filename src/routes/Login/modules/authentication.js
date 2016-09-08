@@ -101,7 +101,6 @@ export function receiveSetPassword (body) {
 
 export const authenticate = (email, password) => {
   return (dispatch, getState) => {
-<<<<<<< HEAD
     dispatch(requestAuthentication())
     const sessionToken = localStorage.getItem('session')
     localStorage.setItem('email', email)
@@ -110,16 +109,6 @@ export const authenticate = (email, password) => {
     .catch(error => dispatch(logout()))
     .then(data => data.json())
     .then(json => dispatch(receiveAuthentication(json, dispatch)))
-=======
-    if (email !== '' || password !== '') {
-      dispatch(requestAuthentication())
-      const sessionToken = localStorage.getItem('session')
-      const body = JSON.stringify({email: email, password: password, session_token: sessionToken})
-      fetchAPI('POST', body, 'people/authenticate')
-      .then(data => data.json())
-      .then(json => dispatch(receiveAuthentication(json)))
-    }
->>>>>>> 0fad4cd4e57ce49597c5780eac08fd08a6b6df1e
   }
 }
 
@@ -197,25 +186,12 @@ const checkAuthentication = (body) => {
   return AuthenticationStatus.FAILURE
 }
 
-<<<<<<< HEAD
 const checkMessage = (status, body) => {
   return status !== AuthenticationStatus.FAILURE ? body['success'] : body['errors']
 }
 
 const checkLoggedIn = (status) => {
   return status === AuthenticationStatus.PERMANENT
-=======
-const generateAuthenticationState = (body, state) => {
-  const status = checkAuthentication(body)
-  let message = status !== AuthenticationStatus.FAILURE ? body['success'] : body['errors']
-  let loggedIn = false
-  if (status === AuthenticationStatus.PERMANENT) {
-    localStorage.setItem('session', body['session_token'])
-    loggedIn = true
-    login()
-  }
-  return ({...state, fetching: false, authStatus: status, message: message, loggedIn: loggedIn})
->>>>>>> 0fad4cd4e57ce49597c5780eac08fd08a6b6df1e
 }
 
 const AUTHENTICATION_ACTION_HANDLERS = {
