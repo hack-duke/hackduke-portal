@@ -43,11 +43,12 @@ const MOUNT_NODE = document.getElementById('root')
 
 let render = () => {
   const routes = require('./routes/index').default(store)
-  if (localStorage.getItem('session') !== '') {
-    store.dispatch(authenticate(localStorage.getItem('email'), ''))
+  if (store.getState().authentication.loggedIn) {
+    store.dispatch(authenticate(localStorage.getItem('email'), 'password'))
   } else {
     store.dispatch(push('/login'))
   }
+
 
   ReactDOM.render(
     <AppContainer

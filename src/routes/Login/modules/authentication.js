@@ -80,7 +80,7 @@ export function receiveSetPassword (body) {
 export const authenticate = (email, password) => {
   localStorage.setItem('email', email)
   return (dispatch, getState) => {
-    if (email !== '' || password !== '') {
+    if (email !== '' && password !== '') {
       dispatch(requestAuthentication())
       const sessionToken = localStorage.getItem('session')
       const body = JSON.stringify({email: email, password: password, session_token: sessionToken})
@@ -113,7 +113,7 @@ export const setPassword = (email, password) => {
 
 export const login = () => {
   return (dispatch, getState) => {
-    dispatch(push('/application'))
+    dispatch(push('/dashboard'))
   }
 }
 
@@ -162,7 +162,7 @@ const generateAuthenticationState = (body, state) => {
     localStorage.setItem('session', body['session_token'])
     loggedIn = true
     login()
-  }
+  } 
   return ({...state, fetching: false, authStatus: status, message: message, loggedIn: loggedIn})
 }
 

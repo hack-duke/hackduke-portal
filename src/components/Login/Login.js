@@ -12,6 +12,7 @@ class Login extends React.Component {
     this.handleButtonClick = this.handleButtonClick.bind(this)
     this.handleFirstChange = this.handleFirstChange.bind(this)
     this.handleSecondChange = this.handleSecondChange.bind(this)
+    this.handleEnter = this.handleEnter.bind(this)
   }
 
   static propTypes = {
@@ -24,6 +25,20 @@ class Login extends React.Component {
     updateMessage: React.PropTypes.func.isRequired,
     login: React.PropTypes.func.isRequired,
     fetching: React.PropTypes.bool.isRequired
+  }
+
+  handleEnter (event) {
+    if (event.keyCode === 13) {
+      this.handleButtonClick()
+    }
+  }
+
+  componentWillMount () {
+    document.addEventListener('keydown', this.handleEnter, false)
+  }
+
+  componentWillUnmount () {
+    document.removeEventListener('keydown', this.handleEnter, false)
   }
 
   componentWillReceiveProps (nextProps) {
@@ -129,7 +144,7 @@ class Login extends React.Component {
               onChange={this.handleSecondChange}
               placeholder={this.handleSecondPlaceholder()} />)
           }
-          <button className={classes.loginButton} onClick={this.handleButtonClick}>
+          <button id='action' className={classes.loginButton} onClick={this.handleButtonClick}>
             {this.handleButtonText()}
           </button>
           <button className={classes.textButton} onClick={this.handlePasswordClick}> {this.state.bottomText}
