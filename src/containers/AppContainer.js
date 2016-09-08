@@ -20,7 +20,7 @@ class AppContainer extends Component {
     }
     if (!store.getState().authentication.loggedIn) {
       store.dispatch(authenticate(localStorage.getItem('email'), 'password'))
-    } 
+    }
   }
 
   render () {
