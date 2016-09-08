@@ -149,13 +149,6 @@ export const logout = () => {
   }
 }
 
-export const logout = () => {
-  return (dispatch, getState) => {
-    localStorage.setItem('session', '')
-    dispatch(updateLoggedIn(false))
-  }
-}
-
 export const actions = {
   requestAuthentication,
   receiveAuthentication,
