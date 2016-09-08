@@ -1,7 +1,7 @@
 # HackDuke Portal
 
 ##Overview
-TODO
+This project provides a portal for applicants to HackDuke events so that users can see their application status and information as well as make changes to their information if necessary. 
 
 ## Project Structure
 ```
