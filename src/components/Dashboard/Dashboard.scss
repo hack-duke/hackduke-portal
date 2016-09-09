@@ -7,7 +7,7 @@
 .aboutText {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: left;
-  color: #4A4A4A;
+  color: $standardText;
   font-size: 12px;
   margin: 0 20vw 0vw 20vw;
 }
@@ -16,7 +16,7 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
   letter-spacing: 4px;
-  color: #CDCCCE;
+  color: $headerGray;
   font-size: 48px;
   padding: 6vw 0 10vw 0;
 }
@@ -24,7 +24,7 @@
 .status {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
-  color: #1AB6F6;
+  color: $acceptedBlue;
   font-size: 24px;
   margin: 0 0 3vw 0;
 }
@@ -32,7 +32,7 @@
 .statusLabelText {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
-  color: #4A4A4A;
+  color: $standardText;
   font-size: 16px;
   margin: 3vw 0 0 0;
 }
