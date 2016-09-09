@@ -1,13 +1,21 @@
 @import 'src/styles/base';
 
+.background {
+  height: 100vh;
+  width: 100%;
+  overflow: scroll;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .container {
   padding-top: 50px;
-  padding-left: $navMenuWidth;
+  // padding-left: $navMenuWidth;
 }
 
 .contentContainer {
   // width: calc(100vw - $navMenuWidth); // TODO: calculate this programmatically
-  width: 400px;
+  width: 100vw;
 }
 
 .aboutText {

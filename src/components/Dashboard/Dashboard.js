@@ -13,8 +13,7 @@ class Dashboard extends React.Component {
 
   render () {
     return (
-      <div>
-        <NavMenu />
+      <div className={classes.background}>
         <div className={classes.container}>
 
           <div className={classes.contentContainer}>
