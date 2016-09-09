@@ -4,8 +4,35 @@
   padding-left: $navMenuWidth;
 }
 
+.aboutText {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: left;
+  color: #4A4A4A;
+  font-size: 12px;
+  margin: 0 20vw 0vw 20vw;
+}
+
+.header {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+  letter-spacing: 4px;
+  color: #CDCCCE;
+  font-size: 48px;
+  padding: 6vw 0 10vw 0;
+}
 
 .status {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
-  font-size: 30px;
+  color: #1AB6F6;
+  font-size: 24px;
+  margin: 0 0 3vw 0;
+}
+
+.statusLabelText {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+  color: #4A4A4A;
+  font-size: 16px;
+  margin: 3vw 0 0 0;
 }

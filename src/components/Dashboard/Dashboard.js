@@ -14,11 +14,21 @@ class Dashboard extends React.Component {
       <div>
         <NavMenu />
         <div className={classes.container}>
+          <div className={'container text-center'}>
+            <div className={classes.header}>
+              DASHBOARD
+            </div>
+          </div>
+          <p className={classes.aboutText}> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+          <div className={classes.statusLabelText}>
+            YOUR STATUS:
+          </div>
           <div className={classes.status} >
             {this.props.participant ? (
-            `Your Status: ${this.props.participant['role']['status'].toUpperCase()}`
+            `${this.props.participant['role']['status'].toUpperCase()}`
             ) : null}
           </div>
+          <p className={classes.aboutText}> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
         </div>
       </div>
     )
