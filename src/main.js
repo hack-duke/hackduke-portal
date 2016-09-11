@@ -2,8 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import createBrowserHistory from 'history/lib/createBrowserHistory'
 import { useRouterHistory } from 'react-router'
-import { syncHistoryWithStore, push } from 'react-router-redux'
-import { authenticate } from 'routes/Login/modules/authentication'
+import { syncHistoryWithStore } from 'react-router-redux'
 import createStore from './store/createStore'
 import AppContainer from './containers/AppContainer'
 
@@ -43,11 +42,6 @@ const MOUNT_NODE = document.getElementById('root')
 
 let render = () => {
   const routes = require('./routes/index').default(store)
-  if (localStorage.getItem('session') !== '') {
-    store.dispatch(authenticate(localStorage.getItem('email'), ''))
-  } else {
-    store.dispatch(push('/login'))
-  }
 
   ReactDOM.render(
     <AppContainer
