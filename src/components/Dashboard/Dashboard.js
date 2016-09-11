@@ -14,7 +14,8 @@ class Dashboard extends React.Component {
   render () {
     const aboutTextTop = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
     const aboutTextBot = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
-
+    const statusLabel = 'YOUR STATUS:'
+    const titleText = 'DASHBOARD'
     return (
       <div className={classes.background}>
         <div className={classes.container}>
@@ -22,7 +23,7 @@ class Dashboard extends React.Component {
           <div className={classes.contentContainer}>
 
             <div className={classes.header}>
-                DASHBOARD
+                {titleText}
             </div>
 
             <div className={classes.aboutText}>
@@ -32,7 +33,7 @@ class Dashboard extends React.Component {
             </div>
 
             <div className={classes.statusLabelText}>
-              YOUR STATUS:
+              {statusLabel}
             </div>
 
             <div className={classes.status} >
@@ -42,8 +43,8 @@ class Dashboard extends React.Component {
             </div>
 
             <div className={classes.aboutText}>
-              <a href='#'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-              </a>
+              <a href='#'>
+                {aboutTextBot}
             </div>
           </div>
         </div>
