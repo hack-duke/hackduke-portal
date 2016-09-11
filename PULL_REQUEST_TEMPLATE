@@ -5,8 +5,8 @@ Make sure these boxes are checked before submitting your pull request for review
 - [ ] I have checked that the TravisCI build passes
 - [ ] I have removed all console.log() statements
 - [ ] There are no new compiler warnings
-- [ ] I have listed .env changes (if applicable)
 - [ ] I have tested this on Chrome, Firefox, and Safari
+- [ ] I have listed .env changes (if applicable)
 
 If this PR is related to UI:
 
