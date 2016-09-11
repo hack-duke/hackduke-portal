@@ -1,14 +1,14 @@
 Make sure these boxes are checked before submitting your pull request for review!
 
-- [] I have reviewed this code myself
-- [] I have checked that the TravisCI build passes
-- [] I have removed all console.log() statements
-- [] There are no new compiler warnings
-- [] I have tested this on Chrome, Firefox, and Safari
+- [ ] I have reviewed this code myself
+- [ ] I have checked that the TravisCI build passes
+- [ ] I have removed all console.log() statements
+- [ ] There are no new compiler warnings
+- [ ] I have tested this on Chrome, Firefox, and Safari
 
 If this PR is related to UI:
 
-- [] I have tested this on all screen sizes (iPhones, iPad, Android phones, landscape, portrait)
+- [ ] I have tested this on all screen sizes (iPhones, iPad, Android phones, landscape, portrait)
 
 Testing (if applicable): 
 
@@ -16,5 +16,5 @@ Testing (if applicable):
 
 After submitting, be sure to:
 
-- [] Label this PR as 'request to review'
+- [ ] Label this PR as 'request to review'
 
