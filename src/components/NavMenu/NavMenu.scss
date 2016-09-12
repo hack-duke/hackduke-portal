@@ -8,7 +8,7 @@
 	overflow: auto;
 	width: 250px;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   -webkit-transition: left 0.5s;
 	transition: left 0.5s;
 }
@@ -61,6 +61,7 @@
 	.navMenu {
 		width: 25%;
 	}
+
 	.navMenu img {
 		padding: 12vh 0 10vh 0;
 	}

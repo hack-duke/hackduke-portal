@@ -1,7 +1,6 @@
 import React from 'react'
 import classes from './NavMenu.scss'
 import { IndexLink } from 'react-router'
-import { pushRotate as Menu } from 'react-burger-menu'
 
 class NavMenu extends React.Component {
   constructor () {
@@ -11,10 +10,9 @@ class NavMenu extends React.Component {
   }
 
   handleResize (e) {
-    const menuLeft = window.innerWidth < 767  ? '-250px' : '0px'
-    const buttonLeft = window.innerWidth < 767  ? '0px' : '250px'
+    const menuLeft = window.innerWidth < 767 ? '-250px' : '0px'
+    const buttonLeft = window.innerWidth < 767 ? '0px' : '250px'
     this.setState({menuLeft: menuLeft, buttonLeft: buttonLeft})
-    console.log('hello')
   }
 
   componentDidMount () {
