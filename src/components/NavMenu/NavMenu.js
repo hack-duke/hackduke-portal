@@ -6,7 +6,8 @@ class NavMenu extends React.Component {
   constructor () {
     super()
     this.handleResize = this.handleResize.bind(this)
-    this.state = {enabled: false, menuLeft: '-250px', buttonLeft: '0px'}
+    this.handleClick = this.handleClick.bind(this)
+    this.state = {enabled: false, menuLeft: '0px', buttonLeft: '0px'}
   }
 
   handleResize (e) {
@@ -38,7 +39,7 @@ class NavMenu extends React.Component {
   render () {
     return (
       <div>
-        <button onClick={this.handleClick.bind(this)}
+        <button onClick={this.handleClick}
           className={classes.menuButton}
           style={{'left': `${this.state.buttonLeft}`}}>
           <img src='hackduke-logo.png' />
