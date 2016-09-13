@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './Dashboard.scss'
-import NavMenu from 'redux/containers/NavMenuContainer'
+// import NavMenu from 'redux/containers/NavMenuContainer'
 
 class Dashboard extends React.Component {
 
@@ -12,8 +12,6 @@ class Dashboard extends React.Component {
   // <NavMenu />
 
   render () {
-    const aboutTextTop = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
-    const aboutTextBot = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
     const statusLabel = 'YOUR STATUS:'
     const titleText = 'DASHBOARD'
     return (
@@ -28,7 +26,8 @@ class Dashboard extends React.Component {
 
             <div className={classes.aboutText}>
               <a href='#'>
-                {aboutTextTop}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
               </a>
             </div>
 
@@ -44,7 +43,9 @@ class Dashboard extends React.Component {
 
             <div className={classes.aboutText}>
               <a href='#'>
-                {aboutTextBot}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+              </a>
             </div>
           </div>
         </div>
