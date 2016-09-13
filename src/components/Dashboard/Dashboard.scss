@@ -22,13 +22,14 @@ a:hover {
 }
 
 .container {
-  padding-top: 50px;
+  padding-top: 12vh;
   // padding-left: $navMenuWidth;
 }
 
 .contentContainer {
   // width: calc(100vw - $navMenuWidth); // TODO: calculate this programmatically
   width: 100vw;
+  height: 100vh;
 }
 
 .aboutText {
@@ -64,7 +65,7 @@ a:hover {
 .accepted {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
-  color: $waitlistGreen;
+  color: $acceptedBlue;
   font-size: 24px;
   margin: 0 0 3vh 0;
 }
