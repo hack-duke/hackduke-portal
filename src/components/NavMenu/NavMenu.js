@@ -3,6 +3,7 @@ import classes from './NavMenu.scss'
 import { IndexLink } from 'react-router'
 
 class NavMenu extends React.Component {
+
   constructor () {
     super()
     this.handleResize = this.handleResize.bind(this)
@@ -11,8 +12,10 @@ class NavMenu extends React.Component {
   }
 
   handleResize (e) {
-    const menuLeft = window.innerWidth < 767 ? '-250px' : '0px'
-    const buttonLeft = window.innerWidth < 767 ? '0px' : '250px'
+    //Added this constant to explain the 768
+    const tabletWidth = 768
+    const menuLeft = window.innerWidth < tabletWidth ? '-250px' : '0px'
+    const buttonLeft = window.innerWidth < tabletWidth ? '0px' : '250px'
     this.setState({menuLeft: menuLeft, buttonLeft: buttonLeft})
   }
 
