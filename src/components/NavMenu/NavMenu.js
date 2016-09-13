@@ -12,7 +12,7 @@ class NavMenu extends React.Component {
   }
 
   handleResize (e) {
-    //Added this constant to explain the 768
+    // Added this constant to explain the 768
     const tabletWidth = 768
     const menuLeft = window.innerWidth < tabletWidth ? '-250px' : '0px'
     const buttonLeft = window.innerWidth < tabletWidth ? '0px' : '250px'
