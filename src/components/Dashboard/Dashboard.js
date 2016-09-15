@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './Dashboard.scss'
-import { tagFromRole, tagColorFromRole } from 'extensions/tagUtils'
+// import { tagFromRole, tagColorFromRole } from 'extensions/tagUtils'
 // import NavMenu from 'redux/containers/NavMenuContainer'
 
 class Dashboard extends React.Component {
@@ -40,16 +40,6 @@ class Dashboard extends React.Component {
               {this.props.participant ? (
               `${this.props.participant['role']['status'].toUpperCase()}`
               ) : null}
-            </div>
-
-            <div>
-              {this.props.participant ? (`${this.props.participant['role']['status']}`).map((role, index) =>
-                <div style={{'backgroundColor': tagColorFromRole(role)}}
-                className={classes.status}
-                key={index}>
-                {tagFromRole(role)}
-                </div>
-              )}
             </div>
 
             <div className={classes.aboutText}>
