@@ -1,6 +1,9 @@
 import { humanize } from './stringUtils'
 
 // from Andy's https://github.com/hack-duke/hackduke-admin/blob/master/src/extensions/tagUtils.js
+$acceptedBlue: #1AB6F6;
+$expiredRed: #FF6D78;
+$waitlistGreen: #21E1C9;
 
 export const tagColorMap = {
   'participant': '#EE5A63',
