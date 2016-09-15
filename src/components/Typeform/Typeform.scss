@@ -1,0 +1,56 @@
+@import 'src/styles/base';
+
+.menuContainer {
+  padding-top: 70px;
+  width: 100%
+}
+
+.coloredRect:focus {
+  outline: none;
+}
+
+.coloredRect {
+  border: 0;
+  border-radius: 5px;
+  display: inline-block;
+  text-align: center;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 20px;
+  color: #FFFFFF;
+  font-weight: 800;
+}
+
+.typeform {
+  height: 100vh;
+  width: 100%;
+  border: 0;
+}
+
+.spinner {
+  background-image: url('static/spinner.gif');
+    background-repeat: no-repeat;
+    background-position: 50% 55%;
+    background-size: 50px 50px;
+    z-index: 1000000;
+    height: 100vh;
+}
+
+
+.frameContainer {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.typeformListContainer {
+  position: relative;
+  width: 100%;
+}

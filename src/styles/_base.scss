@@ -11,7 +11,7 @@ For example:
 @import './themes/default';
 */
 
-$navMenuWidth: 250px;
+$navMenuWidth: 10px;
 
 $navLight: #192738;
 $navDark: #0F1B27;
@@ -24,3 +24,4 @@ $inputGray: #F0F0F0;
 $loginBlue: #33A4F4;
 $loginGray: #C5C5C5;
 
+$desktopBreakpoint: 1024px;
