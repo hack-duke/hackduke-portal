@@ -29,14 +29,13 @@ class NavMenu extends React.Component {
   }
 
   handleClick () {
-    const menuLeft = !this.state.enabled ? '0' : '-250px'
+    const menuLeft = !this.state.enabled ? '0px' : '-250px'
     const buttonLeft = !this.state.enabled ? '250px' : '0px'
     this.setState({menuLeft: menuLeft, buttonLeft: buttonLeft, enabled: !this.state.enabled})
   }
 
   static propTypes = {
-    logout: React.PropTypes.func.isRequired,
-    click: React.PropTypes.func.isRequired
+    logout: React.PropTypes.func.isRequired
   }
 
   render () {
@@ -45,7 +44,7 @@ class NavMenu extends React.Component {
         <button onClick={this.handleClick}
           className={classes.menuButton}
           style={{'left': `${this.state.buttonLeft}`}}>
-          <img src='hackduke-logo.png' />
+          <img src='hamburger-icon.png' />
         </button>
         <div className={classes.navMenu}
           style={{'left': `${this.state.menuLeft}`}}>
