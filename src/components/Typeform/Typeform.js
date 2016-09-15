@@ -7,10 +7,6 @@ class Typeform extends React.Component {
     email: React.PropTypes.string.isRequired
   }
 
-  constructor () {
-    super()
-  }
-
   render () {
     let baseUrl = 'https://hackduke.typeform.com/to/aMQ9pA?email='
     baseUrl += this.props.email
