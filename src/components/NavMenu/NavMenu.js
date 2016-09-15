@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './NavMenu.scss'
 import { IndexLink } from 'react-router'
+import { tabletBreakpoint, navMenuWidth } from 'constants/design'
 
 class NavMenu extends React.Component {
 
@@ -12,9 +13,8 @@ class NavMenu extends React.Component {
   }
 
   handleResize (e) {
-    const tabletWidth = 768
-    const menuLeft = window.innerWidth <= tabletWidth ? '-300px' : '0px'
-    const buttonLeft = window.innerWidth <= tabletWidth ? '0px' : '300px'
+    const menuLeft = window.innerWidth <= tabletBreakpoint ? `-${navMenuWidth}px` : '0px'
+    const buttonLeft = window.innerWidth <= tabletBreakpoint ? '0px' : `${navMenuWidth}px`
     this.setState({menuLeft: menuLeft, buttonLeft: buttonLeft})
   }
 
@@ -28,8 +28,8 @@ class NavMenu extends React.Component {
   }
 
   handleClick () {
-    const menuLeft = !this.state.enabled ? '0px' : '-300px'
-    const buttonLeft = !this.state.enabled ? '300px' : '0px'
+    const menuLeft = !this.state.enabled ? '0px' : `-${navMenuWidth}px`
+    const buttonLeft = !this.state.enabled ? `${navMenuWidth}px` : '0px'
     this.setState({menuLeft: menuLeft, buttonLeft: buttonLeft, enabled: !this.state.enabled})
   }
 
@@ -54,7 +54,7 @@ class NavMenu extends React.Component {
           <div className={classes.menuItem}>
             <IndexLink className={classes.linkElement} to={'/application'}>APPLICATION</IndexLink>
           </div>
-          <div className={classes.menuItem}>
+          <div className={classes.menuItem} style={{'paddingBottom': '90px'}}>
             <IndexLink onClick={this.props.logout} className={classes.linkElement} to={'/login'}>LOGOUT</IndexLink>
           </div>
         </div>
