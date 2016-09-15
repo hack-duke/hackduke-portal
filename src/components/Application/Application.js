@@ -1,7 +1,6 @@
 import React from 'react'
 import classes from './Application.scss'
 import Participant from 'components/Participant'
-import NavMenu from 'redux/containers/NavMenuContainer'
 import Typeform from 'components/Typeform'
 import { updateChannel } from 'pusher/updateChannel'
 
@@ -22,7 +21,6 @@ class Application extends React.Component {
   render () {
     return (
       <div>
-        <NavMenu />
         {this.props.participant ? (
           <div>
             <div className={classes.applicationContainer}>

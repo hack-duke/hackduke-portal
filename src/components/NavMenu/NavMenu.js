@@ -12,10 +12,9 @@ class NavMenu extends React.Component {
   }
 
   handleResize (e) {
-    // Added this constant to explain the 768
     const tabletWidth = 768
-    const menuLeft = window.innerWidth < tabletWidth ? '-250px' : '0px'
-    const buttonLeft = window.innerWidth < tabletWidth ? '0px' : '250px'
+    const menuLeft = window.innerWidth <= tabletWidth ? '-300px' : '0px'
+    const buttonLeft = window.innerWidth <= tabletWidth ? '0px' : '300px'
     this.setState({menuLeft: menuLeft, buttonLeft: buttonLeft})
   }
 
@@ -29,8 +28,8 @@ class NavMenu extends React.Component {
   }
 
   handleClick () {
-    const menuLeft = !this.state.enabled ? '0px' : '-250px'
-    const buttonLeft = !this.state.enabled ? '250px' : '0px'
+    const menuLeft = !this.state.enabled ? '0px' : '-300px'
+    const buttonLeft = !this.state.enabled ? '300px' : '0px'
     this.setState({menuLeft: menuLeft, buttonLeft: buttonLeft, enabled: !this.state.enabled})
   }
 

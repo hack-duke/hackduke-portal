@@ -38,6 +38,6 @@ describe('(Component) NavMenu', () => {
     _wrapper.instance().handleClick()
     expect(_wrapper.instance().state.enabled).to.eql(true)
     expect(_wrapper.instance().state.menuLeft).to.eql('0px')
-    expect(_wrapper.instance().state.buttonLeft).to.eql('250px')
+    expect(_wrapper.instance().state.buttonLeft).to.eql('300px')
   })
 })
