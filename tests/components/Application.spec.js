@@ -43,10 +43,6 @@ describe('(Component) Application', () => {
     _wrapper = shallow(<Application {..._props} />)
   })
 
-  it('renders a Nav Menu', () => {
-    expect(_wrapper.find(NavMenu)).to.have.length(1)
-  })
-
   it('renders a Participant', () => {
     expect(_wrapper.find(Participant)).to.have.length(1)
   })

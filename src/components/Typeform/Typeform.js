@@ -14,7 +14,7 @@ class Typeform extends React.Component {
     return (
       <div className={classes.frameContainer}>
         <div className={classes.spinner}>
-          <embed className={classes.typeform}
+          <embed id='typeform' className={classes.typeform}
             src={baseUrl} />
         </div>
       </div>

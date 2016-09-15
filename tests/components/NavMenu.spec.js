@@ -4,6 +4,7 @@ import { IndexLink } from 'react-router'
 import NavMenu from 'components/NavMenu'
 import classes from 'components/NavMenu/NavMenu.scss'
 import { shallow } from 'enzyme'
+import { navMenuWidth } from 'constants/design'
 
 describe('(Component) NavMenu', () => {
   let _props, _spies, _wrapper
@@ -38,6 +39,6 @@ describe('(Component) NavMenu', () => {
     _wrapper.instance().handleClick()
     expect(_wrapper.instance().state.enabled).to.eql(true)
     expect(_wrapper.instance().state.menuLeft).to.eql('0px')
-    expect(_wrapper.instance().state.buttonLeft).to.eql('250px')
+    expect(_wrapper.instance().state.buttonLeft).to.eql(`${navMenuWidth}px`)
   })
 })

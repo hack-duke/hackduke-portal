@@ -1,5 +1,11 @@
 @import 'src/styles/base';
 
 .mainContainer {
+  padding-left: $navMenuWidth;
+} 
 
+@media (max-width: $tabletBreakpoint) {
+  .mainContainer {
+    padding-left: 0;
+  }
 }
