@@ -2,8 +2,17 @@ import React from 'react'
 import classes from './Application.scss'
 import Participant from 'components/Participant'
 import NavMenu from 'redux/containers/NavMenuContainer'
+import Typeform from 'components/Typeform'
+import { updateChannel } from 'pusher/updateChannel'
 
 class Application extends React.Component {
+
+  componentWillReceiveProps () {
+    const that = this
+    updateChannel.bind('trigger_update', function (data) {
+      that.props.fetchParticipant(that.props.participant['person']['email'], 'design_con', 2016, 'spring')
+    })
+  }
 
   static propTypes = {
     participant: React.PropTypes.object,
@@ -14,12 +23,16 @@ class Application extends React.Component {
     return (
       <div>
         <NavMenu />
-        <div className={classes.container}>
-          {this.props.participant ? (
-            <Participant participant={this.props.participant['role']}
-              person={this.props.participant['person']} />
-          ) : null}
-        </div>
+        {this.props.participant ? (
+          <div>
+            <div className={classes.applicationContainer}>
+              <Participant participant={this.props.participant['role']} person={this.props.participant['person']} />
+            </div>
+            <div className={classes.formContainer}>
+              <Typeform email={this.props.participant['person']['email']} />
+            </div>
+          </div>
+        ) : null}
       </div>
     )
   }
