@@ -1,10 +1,89 @@
 @import 'src/styles/base';
 
+// Creates fake links in order to change text color to blue on hover
+a, a:link, a:active, a:visited {
+    text-decoration:none;
+    color: $standardText;
+    cursor: text;
+}
+
+a:hover {
+    text-decoration:none;
+    color: $acceptedBlue;
+    cursor: text;
+}
+
+.background {
+  height: 100vh;
+  width: 100%;
+  overflow: scroll;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .container {
-  padding-left: $navMenuWidth;
+  padding-top: 12vh;
+  // padding-left: $navMenuWidth;
+}
+
+.contentContainer {
+  // width: calc(100vw - $navMenuWidth); // TODO: calculate this programmatically
+  width: 100vw;
+  height: 100vh;
+}
+
+.aboutText {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: left;
+  color: $standardText;
+  line-height: 2em;
+  font-size: 1em;
+  margin: 0 3vw 0 3vw;
+}
+
+.header {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+  letter-spacing: 4px;
+  color: $headerGray;
+  font-size: 48px;
+  padding: 3vh 3vw 13vh 3vw;
+}
+
+.header:hover {
+  color: $acceptedBlue;
 }
 
 .status {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
-  font-size: 30px;
+  color: $acceptedBlue;
+  font-size: 24px;
+  margin: 0 0 3vh 0;
+}
+
+.statusLabelText {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+  color: $standardText;
+  font-size: 12px;
+  margin: 3vh 0 0 0;
+}
+
+@media (min-width: $tabletBreakpoint) {
+  // .contentContainer {
+  //   width: auto;
+  // }
+
+}
+
+@media (min-width: $desktopBreakpoint) {
+  .header {
+    padding: 4vw 3vw 8vw 3vw;
+  }
+
+  .aboutText {
+    margin: 0 20vw 0 20vw;
+  }
+
 }
