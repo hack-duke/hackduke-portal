@@ -64,6 +64,10 @@
 
 @media (min-width: $tabletBreakpoint) {
 
+	.navMenu {
+		width: $desktopNavMenuWidth;
+	}
+
 	.navMenu img {
 		padding: 12vh 0 10vh 0;
 	}
