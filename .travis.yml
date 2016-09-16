@@ -10,4 +10,10 @@ install:
 script:
 - npm run lint
 - npm run test
-
+deploy:
+  provider: heroku
+  api_key:
+    secure: a0JkCONmp4Ev0f0qoLXss9+YV69AaJsSHQFCZeKSbfC37jQ5UGe4pmuAWlxrgij2PUXzRiXUlx6im3idB/wIXutKdAXVUUzpm7QgHXwN5ryFKFxpWFE8Ip+jXUkiEdzdC262/NG0DLR5pjuCkmOx7AALikmiDFOu1zgtU6rVlZsHiT43AWpoSmFTNra2CIDWluxSgsrm3ZZWNk/NCPF8m+LwZyLlXxGbeycYk6fScolPxk10vVUT+jvClqYemikqOfM8XZuimZB/UomRyuFNbi0zCLHH3S97R2NxplIBSK8YkC/kUGrYG40Ayou7lbME7tpB23bQnj1T+NXM7YY+kqralf5jsp8GBMgcwKmhX9vTkYNtvHT0vgGM1GYiWyNzg7CivxIrdwBEX3K/7Tz72dBltU7yml5pNMSuzX+7Cg2Nninz+e4sHxaJzbhj+7z/6uXxZCZ3nUoEH86LdoAFbnUMPYvU9sFP8qGhdWTEkkT8cmCBCv4O8gJqW27o1+CbQBkHekad4/Yt0QjTm5yBa9PLYoRr+30uBjG2kMFtvvLXGabzdMQ0yOcmrRpp4M++FS8AHFDmKv66/engjDAgogCOPQGZEdgiEdL1GB35eyr8Fu0yasEsXKGo8Kgvv6k5fD+C5QvSa8XfaISKawEsfJYFENjVSDODDk4hTE1k2Vw=
+  app: hackduke-portal
+  on:
+    repo: hack-duke/hackduke-portal

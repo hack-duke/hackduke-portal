@@ -11,7 +11,11 @@ export default (store) => ({
           dependencies for bundling   */
       const Application = require('./containers/ApplicationContainer').default
 
-      store.dispatch(fetchParticipant(localStorage.getItem('email'), 'design_con', 2016, 'spring'))
+      let email = localStorage.getItem('email')
+      if (email === '' || email === null) {
+        email = document.cookie.split('=')[1]
+      }
+      store.dispatch(fetchParticipant(email, 'design_con', 2016, 'spring'))
 
       /*  Return getComponent   */
       cb(null, Application)

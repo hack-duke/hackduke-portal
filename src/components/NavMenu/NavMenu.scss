@@ -1,25 +1,84 @@
 @import 'src/styles/base';
 
 .navMenu {
-	overflow: auto;
+	background-image: url('static/dashboard.png');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
 	display: inline-block;
-	background-color: $navLight;
-	height: 100vh;
+	overflow: auto;
 	width: $navMenuWidth;
-	position: fixed;
+  height: 100vh;
+  position: fixed;
+  -webkit-transition: left 0.5s;
+	transition: left 0.5s;
+	z-index: 999;
+}
+
+.menuButton {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0);
+	text-shadow: none;
+	border: none;
+	box-shadow: none;
+	display: block;
+	top: 10px;
+  -webkit-transition: left 0.5s;
+	transition: left 0.5s;
+	z-index: 999;
+}
+
+.menuButton:focus {
+	outline: none;
+}
+
+.menuButton img {
+	width: 40px;
+	height: 40px;
+	margin: 0 auto;
+}
+
+.navMenu img {
+	display: block;
+	margin: 0 auto;
+	padding: 75px 0 60px 0;
+	width: 50%;
+}
+
+.menuItem {
+	padding: 15px 0;
 }
 
 .linkElement, .linkElement:active, .linkElement:visited, .linkElement:link {
-	background-color: $navLight;
 	display: block;
 	text-align: center;
 	text-decoration: none;
-	height: 75px;
-	line-height: 75px;
 	color: #FFFFFF;
-	opacity: 0.8;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .linkElement:hover {
-	background-color: $navDark;
+	color: #7EC0EE;
+	cursor: pointer;
+}
+
+@media (min-width: $tabletBreakpoint) {
+
+	.navMenu img {
+		padding: 12vh 0 10vh 0;
+	}
+
+	.menuItem {
+		padding: 2vh 0;
+	}
+
+	.menuButton {
+		display: none;
+	}
+
+	.linkElement, .linkElement:active, .linkElement:visited, .linkElement:link {
+		font-size: 1.2em;
+	}
+
 }

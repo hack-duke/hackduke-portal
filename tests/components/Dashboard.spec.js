@@ -3,7 +3,7 @@ import LinkInfo from 'components/Dashboard'
 import classes from 'components/Dashboard/Dashboard.scss'
 import { shallow} from 'enzyme'
 
-describe('(Component) LinkInfo', () => {
+describe('(Component) Dashboard', () => {
   let _props, _spies, _wrapper
    beforeEach(() => {
     _spies = {}
