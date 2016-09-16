@@ -1,2 +1,2 @@
 export const navMenuWidth = 300
-export const tabletBreakpoint = 769
+export const tabletBreakpoint = 767

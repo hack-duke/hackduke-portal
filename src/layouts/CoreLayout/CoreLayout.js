@@ -15,10 +15,6 @@ class CoreLayout extends React.Component {
     children: React.PropTypes.element.isRequired
   }
 
-  navMenuDisplay (isLoginScreen) {
-    return window.location.href.includes('/login') ? 'none' : 'block'
-  }
-
   componentDidMount () {
     window.addEventListener('resize', this.handleResize)
   }
@@ -31,7 +27,11 @@ class CoreLayout extends React.Component {
     this.setState({width: window.innerWidth})
   }
 
-  mainContainerPadding (isLoginScreen) {
+  navMenuDisplay () {
+    return window.location.href.includes('/login') ? 'none' : 'block'
+  }
+
+  mainContainerPadding () {
     return window.location.href.includes('/login') || this.state.width <= tabletBreakpoint ? '0px' : `${navMenuWidth}px`
   }
 

@@ -1,6 +1,6 @@
 import Pusher from 'pusher-js'
 
-Pusher.logToConsole = true
+Pusher.logToConsole = false
 const pusher = new Pusher(PUSHER_APP_KEY, {
   encrypted: true
 })
