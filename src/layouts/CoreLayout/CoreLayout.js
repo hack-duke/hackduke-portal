@@ -16,7 +16,7 @@ class CoreLayout extends React.Component {
   }
 
   navMenuDisplay (isLoginScreen) {
-    return window.location.href.includes('/login') ? 'none' : 'block'
+    return window.location.href === `http://${window.location.host}/` ? 'none' : 'block'
   }
 
   componentDidMount () {
@@ -32,8 +32,8 @@ class CoreLayout extends React.Component {
   }
 
   mainContainerPadding (isLoginScreen) {
-    console.log(this.state.width <= tabletBreakpoint)
-    return window.location.href.includes('/login') || this.state.width <= tabletBreakpoint ? '0px' : `${navMenuWidth}px`
+    const isLogin = window.location.href === `http://${window.location.host}/`
+    return isLogin || this.state.width <= tabletBreakpoint ? '0px' : `${navMenuWidth}px`
   }
 
   render () {

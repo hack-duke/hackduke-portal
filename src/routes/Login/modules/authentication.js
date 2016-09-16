@@ -143,7 +143,7 @@ export const logout = () => {
   return (dispatch, getState) => {
     localStorage.removeItem('session')
     localStorage.setItem('email', '')
-    dispatch(push('/login'))
+    dispatch(push('/'))
     dispatch(updateAuthStatus(''))
     dispatch(updateMessage(''))
     dispatch(updateLoggedIn(false))

@@ -12,11 +12,11 @@ class AppContainer extends Component {
   }
 
   handleAuth () {
-    const routeNames = ['/dashboard', '/login', '/application']
+    const routeNames = ['/dashboard', '/', '/application']
     const store = this.props.store
     const currRoute = store.getState().router.locationBeforeTransitions.pathname
     if (!routeNames.includes(currRoute)) {
-      store.dispatch(push('/login'))
+      store.dispatch(push('/'))
     }
     if (!store.getState().authentication.loggedIn) {
       store.dispatch(authenticate(localStorage.getItem('email'), 'password'))

@@ -31,7 +31,7 @@ describe('(Component) NavMenu', () => {
   it('clicking IndexLinks sends to correct page', () => {
     expect(_wrapper.find('[to="/dashboard"]')).to.have.length(1)
     expect(_wrapper.find('[to="/application"]')).to.have.length(1)
-    expect(_wrapper.find('[to="/login"]')).to.have.length(1)
+    expect(_wrapper.find('[to="/"]')).to.have.length(1)
   })
 
   it('pressing menu button changes state correctly', () => {
