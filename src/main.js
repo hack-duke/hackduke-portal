@@ -50,7 +50,11 @@ let render = () => {
     store.dispatch(push('/login'))
   }
   if (!store.getState().authentication.loggedIn) {
-    store.dispatch(authenticate(localStorage.getItem('email'), 'password'))
+    try {
+      store.dispatch(authenticate(localStorage.getItem('email'), 'password'))
+    } catch (e) {
+      store.dispatch(push('/login'))
+    }
   }
 
   ReactDOM.render(
