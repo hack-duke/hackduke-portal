@@ -92,7 +92,7 @@ export function receiveSetPassword (body) {
     try {
       localStorage.setItem('session', body['session_token'])
     } catch (e) {
-      document.cookie = `session=${body['session_token']}`
+      console.log('Can\'t save session token because localStorage not available')
     }
   }
   return {
