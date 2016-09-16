@@ -37,12 +37,4 @@ describe('(Component) Dashboard', () => {
     _wrapper = shallow(<LinkInfo {..._props} />)
   })
 
-  it('header', () => {
-    const titles = _wrapper.instance().props.titles
-    expect(_wrapper.find('a').filterWhere(a => a.text() === titles[0])).to.have.length(1)
-    expect(_wrapper.find('a').filterWhere(a => a.text() === titles[1])).to.have.length(1)
-    expect(_wrapper.find('a').filterWhere(a => a.text() === titles[2])).to.have.length(1)
-    expect(_wrapper.find('a').filterWhere(a => a.text() === titles[3])).to.have.length(1)
-  })
-
 })
