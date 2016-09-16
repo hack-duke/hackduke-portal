@@ -132,7 +132,7 @@ export const authenticate = (email, password) => {
 export const resetPassword = (email) => {
   return (dispatch, getState) => {
     dispatch(requestResetPassword())
-    if (email != null || email != '') {
+    if (email != null) {
       const body = JSON.stringify({ email: email.toLowerCase() })
       fetchAPI('POST', body, 'people/reset_password')
       .then(data => data.json())
