@@ -1,6 +1,6 @@
 import React from 'react'
 import NavMenu from 'redux/containers/NavMenuContainer'
-import { navMenuWidth, tabletBreakpoint, desktopNavBarWidth } from 'constants/design'
+import { tabletBreakpoint } from 'constants/design'
 import '../../styles/core.scss'
 
 class CoreLayout extends React.Component {
