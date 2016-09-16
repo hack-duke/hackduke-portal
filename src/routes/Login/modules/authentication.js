@@ -102,7 +102,7 @@ export function receiveSetPassword (body) {
 export const authenticate = (email, password) => {
   return (dispatch, getState) => {
     dispatch(requestAuthentication())
-    if(email != null) {
+    if (email != null) {
       let lowerCaseEmail = email.toLowerCase()
       const sessionToken = localStorage.getItem('session')
       localStorage.setItem('email', lowerCaseEmail)
