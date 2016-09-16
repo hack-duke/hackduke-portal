@@ -47,7 +47,11 @@ export function requestAuthentication () {
 export function receiveAuthentication (body, dispatch) {
   const status = checkAuthentication(body)
   if (status === AuthenticationStatus.PERMANENT) {
-    localStorage.setItem('session', body['session_token'])
+    try {
+      localStorage.setItem('session', body['session_token'])
+    } catch (e) {
+      console.log('Can\'t save session token because localStorage not available')
+    }
     dispatch(login())
   }
   if (status === AuthenticationStatus.FAILURE || status === '') {
@@ -85,7 +89,11 @@ export function requestSetPassword () {
 export function receiveSetPassword (body) {
   const status = checkAuthentication(body)
   if (status === AuthenticationStatus.PERMANENT) {
-    localStorage.setItem('session', body['session_token'])
+    try {
+      localStorage.setItem('session', body['session_token'])
+    } catch (e) {
+      console.log('Can\'t save session token because localStorage not available')
+    }
   }
   return {
     type: RECEIVE_SET_PASSWORD,
@@ -102,27 +110,34 @@ export function receiveSetPassword (body) {
 export const authenticate = (email, password) => {
   return (dispatch, getState) => {
     dispatch(requestAuthentication())
-    let lowerCaseEmail = ''
-    if (email != null) {
-      lowerCaseEmail = email.toLowerCase()
+    if (email !== null || email !== '') {
+      let lowerCaseEmail = email.toLowerCase()
+      let sessionToken = localStorage.getItem('session')
+      try {
+        localStorage.setItem('email', lowerCaseEmail)
+      } catch (e) {
+        document.cookie = `email=${lowerCaseEmail}`
+      }
+      const body = JSON.stringify({email: lowerCaseEmail, password: password, session_token: sessionToken})
+      fetchAPI('POST', body, 'people/authenticate')
+      .catch(error => dispatch(logout()))
+      .then(data => data.json())
+      .then(json => dispatch(receiveAuthentication(json, dispatch)))
+    } else {
+      dispatch(logout())
     }
-    const sessionToken = localStorage.getItem('session')
-    localStorage.setItem('email', lowerCaseEmail)
-    const body = JSON.stringify({email: lowerCaseEmail, password: password, session_token: sessionToken})
-    fetchAPI('POST', body, 'people/authenticate')
-    .catch(error => dispatch(logout()))
-    .then(data => data.json())
-    .then(json => dispatch(receiveAuthentication(json, dispatch)))
   }
 }
 
 export const resetPassword = (email) => {
   return (dispatch, getState) => {
     dispatch(requestResetPassword())
-    const body = JSON.stringify({ email: email })
-    fetchAPI('POST', body, 'people/reset_password')
-    .then(data => data.json())
-    .then(json => dispatch(receiveResetPassword(json)))
+    if (email != null) {
+      const body = JSON.stringify({ email: email.toLowerCase() })
+      fetchAPI('POST', body, 'people/reset_password')
+      .then(data => data.json())
+      .then(json => dispatch(receiveResetPassword(json)))
+    }
   }
 }
 
@@ -144,8 +159,12 @@ export const login = () => {
 
 export const logout = () => {
   return (dispatch, getState) => {
-    localStorage.removeItem('session')
-    localStorage.setItem('email', '')
+    try {
+      localStorage.removeItem('session')
+      localStorage.setItem('email', '')
+    } catch (e) {
+      document.cookie = 'email='
+    }
     dispatch(push('/login'))
     dispatch(updateAuthStatus(''))
     dispatch(updateMessage(''))
