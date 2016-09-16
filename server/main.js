@@ -55,9 +55,7 @@ if (config.env === 'development') {
 
   app.use(enforceHttps({trustProtoHeader: true}))
 
-  app.use(async (ctx, next) => {
-    await send(ctx, ctx.path, { root: paths.dist(), index: 'index.html' })
-  })
+  app.use(serve(paths.dist()))
 }
 
 export default app
