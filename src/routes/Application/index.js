@@ -12,7 +12,7 @@ export default (store) => ({
       const Application = require('./containers/ApplicationContainer').default
 
       let email = localStorage.getItem('email')
-      if (email == '' || email == null) {
+      if (email === '' || email === null) {
         email = document.cookie.split('=')[1]
       }
       store.dispatch(fetchParticipant(email, 'design_con', 2016, 'spring'))
