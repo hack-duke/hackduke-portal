@@ -102,14 +102,16 @@ export function receiveSetPassword (body) {
 export const authenticate = (email, password) => {
   return (dispatch, getState) => {
     dispatch(requestAuthentication())
-    let lowerCaseEmail = email.toLowerCase()
-    const sessionToken = localStorage.getItem('session')
-    localStorage.setItem('email', lowerCaseEmail)
-    const body = JSON.stringify({email: lowerCaseEmail, password: password, session_token: sessionToken})
-    fetchAPI('POST', body, 'people/authenticate')
-    .catch(error => dispatch(logout()))
-    .then(data => data.json())
-    .then(json => dispatch(receiveAuthentication(json, dispatch)))
+    if(email != null) {
+      let lowerCaseEmail = email.toLowerCase()
+      const sessionToken = localStorage.getItem('session')
+      localStorage.setItem('email', lowerCaseEmail)
+      const body = JSON.stringify({email: lowerCaseEmail, password: password, session_token: sessionToken})
+      fetchAPI('POST', body, 'people/authenticate')
+      .catch(error => dispatch(logout()))
+      .then(data => data.json())
+      .then(json => dispatch(receiveAuthentication(json, dispatch)))
+    }
   }
 }
 
