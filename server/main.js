@@ -56,15 +56,7 @@ if (config.env === 'development') {
   app.use(enforceHttps({trustProtoHeader: true}))
 
   app.use(async (ctx, next) => {
-    const base64 = require('base-64')
-    const auth = `${process.env.BASIC_AUTH_USERNAME}:${process.env.BASIC_AUTH_PASSWORD}`
-    const header = 'Basic ' + base64.encode(auth)
-    if (header === ctx.request.header.authorization) {
-      await send(ctx, ctx.path, { root: paths.dist(), index: 'index.html' })
-    } else {
-      ctx.status = 401
-      ctx.set('WWW-Authenticate', 'Basic')
-    }
+    await send(ctx, ctx.path, { root: paths.dist(), index: 'index.html' })
   })
 }
 
