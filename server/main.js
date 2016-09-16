@@ -4,7 +4,6 @@ import webpack from 'webpack'
 import webpackConfig from '../build/webpack.config'
 import historyApiFallback from 'koa-connect-history-api-fallback'
 import serve from 'koa-static'
-import send from 'koa-send'
 import proxy from 'koa-proxy'
 import _debug from 'debug'
 import config from '../config'
@@ -53,11 +52,13 @@ if (config.env === 'development') {
     'section in the README for more information on deployment strategies.'
   )
 
+  app.use(convert(historyApiFallback({
+    verbose: false
+  })))
+
   app.use(enforceHttps({trustProtoHeader: true}))
 
-  app.use(async (ctx, next) => {
-    await send(ctx, ctx.path, { root: paths.dist(), index: 'index.html' })
-  })
+  app.use(serve(paths.dist()))
 }
 
 export default app
