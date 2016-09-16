@@ -53,6 +53,10 @@ if (config.env === 'development') {
     'section in the README for more information on deployment strategies.'
   )
 
+  app.use(convert(historyApiFallback({
+    verbose: false
+  })))
+
   app.use(enforceHttps({trustProtoHeader: true}))
 
   app.use(serve(paths.dist()))
