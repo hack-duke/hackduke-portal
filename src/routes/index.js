@@ -13,6 +13,7 @@ export const createRoutes = (store) => ({
   indexRoute: LoginRoute(store),
   childRoutes: [
     ApplicationRoute(store),
+    LoginRoute(store),
     DashboardRoute(store)
   ]
 })

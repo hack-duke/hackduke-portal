@@ -55,7 +55,7 @@ class NavMenu extends React.Component {
             <IndexLink className={classes.linkElement} to={'/application'}>APPLICATION</IndexLink>
           </div>
           <div className={classes.menuItem} style={{'paddingBottom': '90px'}}>
-            <IndexLink onClick={this.props.logout} className={classes.linkElement} to={'/'}>LOGOUT</IndexLink>
+            <IndexLink onClick={this.props.logout} className={classes.linkElement} to={'/login'}>LOGOUT</IndexLink>
           </div>
         </div>
       </div>
