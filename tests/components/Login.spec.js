@@ -38,7 +38,7 @@ describe('(Component) Login', () => {
 
   it('renders 1 input, 2 buttons, and a logo image with correct text when clicking password help', () => {
     expect(_wrapper.find('button').at(2).text().trim()).to.eql('Forgot password?')
-    _wrapper.find('button').at(1).simulate('click');
+    _wrapper.find('button').at(2).simulate('click');
     expect(_wrapper.find('input').at(0).node.props.placeholder.trim()).to.eql('Email')
     expect(_wrapper.find('button').at(0).text().trim()).to.eql('Send password')
     expect(_wrapper.find('button').at(1).text().trim()).to.eql('Back to log in')

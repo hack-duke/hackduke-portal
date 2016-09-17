@@ -76,8 +76,8 @@ describe('(Component) Participant', () => {
   })
 
   it('has 0 list containers for when dietary restrictions and skills are empty', () => {
-    const participant = { ..._wrapper.instance().props.person, dietary_restrictions: []}
-    _wrapper.setProps({participant: participant})
+    const person = { ..._wrapper.instance().props.person, dietary_restrictions: []}
+    _wrapper.setProps({person: person})
     expect(_wrapper.find('.' + classes.listContainer)).to.have.length(0)
   })
 
