@@ -80,7 +80,7 @@ class Login extends React.Component {
   }
 
   loginBoxHeight () {
-    return this.state.sendPassword ? '400px' : '460px'
+    return this.state.sendPassword ? '400px' : '480px'
   }
 
   handleMessageVisibility () {
