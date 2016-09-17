@@ -3,7 +3,7 @@
 .background {
   height: 100vh;
   width: 100%;
-  overflow: scroll;
+  overflow: none;
   background-size: cover;
   background-image: url('static/login-bg.png');
   background-repeat: no-repeat;
@@ -14,6 +14,7 @@
 .message {
   width: 70%;
   margin: auto;
+  font-size: 13px;
   padding: 15px 0px 15px 0px;
   transform: translateX(-3px);
 }
@@ -35,22 +36,45 @@
 }
 
 .loginButton {
-  border: 0;
+  border-width: 1px;
   background-color: $loginBlue;
+  border-style: solid;
+  border-color: $loginBlue;
   width: 70%;
   margin: auto;
   color: #FFFFFF;
   border-radius: 25px;
   height: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-.loginButton:focus {
+.registerButton {
+  border-width: 1px;
+  border-style: solid;
+  background-color: #FFFFFF;
+  border-color: $loginBlue;
+  color: $loginBlue;
+  border-radius: 25px;
+  width: 70%;
+  height: 30px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.loginButton:focus, .registerButton:focus {
   outline: none;
 }
 
 .loginButton:hover {
-  opacity: 0.7;
+  background-color: darken($loginBlue, 10%);
+  border-color: darken($loginBlue, 10%);
+  transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.registerButton:hover {
+  color: #FFF;
+  background-color: $loginBlue;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
 }
 
 .input {
