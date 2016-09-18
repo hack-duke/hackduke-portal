@@ -152,7 +152,7 @@ class Login extends React.Component {
           </button>
           {this.state.sendPassword || this.props.authStatus === AuthenticationStatus.TEMPORARY ? null
             : (
-            <a href={'http://www.google.com'}>
+            <a href={'https://hackduke.typeform.com/to/pZb8zj?route_receive_participant=xxxxx'}>
               <button id='action' className={classes.registerButton}>
                 Register
               </button>
