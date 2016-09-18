@@ -118,7 +118,8 @@ export const authenticate = (email, password) => {
       } catch (e) {
         document.cookie = `email=${lowerCaseEmail}`
       }
-      const body = JSON.stringify({email: lowerCaseEmail, password: password, session_token: sessionToken})
+      const body = JSON.stringify({ email: lowerCaseEmail, password: password, session_token: sessionToken,
+                                   season: 'fall', year: '2016', event_type: 'code_for_good' })
       fetchAPI('POST', body, 'people/authenticate')
       .catch(error => dispatch(logout()))
       .then(data => data.json())
@@ -133,7 +134,8 @@ export const resetPassword = (email) => {
   return (dispatch, getState) => {
     dispatch(requestResetPassword())
     if (email != null) {
-      const body = JSON.stringify({ email: email.toLowerCase() })
+      const body = JSON.stringify({ email: email.toLowerCase(), season: 'fall',
+                                    year: '2016', event_type: 'code_for_good' })
       fetchAPI('POST', body, 'people/reset_password')
       .then(data => data.json())
       .then(json => dispatch(receiveResetPassword(json)))
@@ -144,7 +146,8 @@ export const resetPassword = (email) => {
 export const setPassword = (email, password) => {
   return (dispatch, getState) => {
     dispatch(requestSetPassword())
-    const body = JSON.stringify({ email: email, password: password })
+    const body = JSON.stringify({ email: email, password: password, season: 'fall',
+                                  year: '2016', event_type: 'code_for_good' })
     fetchAPI('POST', body, 'people/set_password')
     .then(data => data.json())
     .then(json => dispatch(receiveSetPassword(json)))
