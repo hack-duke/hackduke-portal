@@ -32,7 +32,8 @@ class CoreLayout extends React.Component {
   }
 
   mainContainerPadding () {
-    return window.location.href.includes('/login') || this.state.width <= tabletBreakpoint ? '0px' : `${desktopNavMenuWidth}%`
+    return window.location.href.includes('/login') || this.state.width <= tabletBreakpoint
+      ? '0px' : `${desktopNavMenuWidth}%`
   }
 
   render () {
