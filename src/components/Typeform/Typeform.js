@@ -8,7 +8,7 @@ class Typeform extends React.Component {
   }
 
   render () {
-    let baseUrl = 'https://hackduke.typeform.com/to/pZb8zj?email='
+    let baseUrl = 'https://hackduke.typeform.com/to/IdQYtU?email='
     baseUrl += this.props.email
     baseUrl += '&route_update_participant=xxxxx'
     return (
