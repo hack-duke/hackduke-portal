@@ -42,8 +42,8 @@ describe('(Component) Dashboard', () => {
   })
 
 
-  it('renders a Participant', () => {
-    expect(_wrapper.find(Participant)).to.have.length(1)
+  it("renders a header", function () {
+    expect(_wrapper.find('.' + classes.header)).to.have.length(1)
   })
 
 })
