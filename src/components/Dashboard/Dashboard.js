@@ -1,17 +1,8 @@
 import React from 'react'
 import classes from './Dashboard.scss'
-import Participant from 'components/Participant'
-
 // import { tagFromRole, tagColorFromRole } from 'extensions/tagUtils'
 
 class Dashboard extends React.Component {
-
-  componentWillReceiveProps () {
-    const that = this
-    updateChannel.bind('trigger_update', function (data) {
-      that.props.fetchParticipant(that.props.participant['person']['email'], 'code_for_good', 2016, 'fall')
-    })
-  }
 
   static propTypes = {
     participant: React.PropTypes.object,

@@ -1,7 +1,6 @@
 import React from 'react'
 import Dashboard from 'components/Dashboard'
 import classes from 'components/Dashboard/Dashboard.scss'
-import Participant from 'components/Participant'
 import { shallow} from 'enzyme'
 
 describe('(Component) Dashboard', () => {
@@ -46,9 +45,12 @@ describe('(Component) Dashboard', () => {
     expect(_wrapper.find('.' + classes.header).filterWhere(p => p.text() === 'DASHBOARD')).to.have.length(1)
   })
 
+  it('renders a status', function() {
+    expect(_wrapper.find('.' + classes.status)).to.have.length(1)
+  })
+
   it('renders the correct status', function() {
-    expect(_wrapper.find('.' + classes.status).filterWhere(p => p.text() === 'ACCEPTED')).to.have.length(1)
-    // TODO: pass in status from props and check against props in this class
+    expect(_wrapper.find('.' + classes.status).filterWhere(p => p.text() === _props.participant['role']['status'].toUpperCase())).to.have.length(1)
   })
 
 })
