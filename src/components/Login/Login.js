@@ -80,7 +80,7 @@ class Login extends React.Component {
   }
 
   loginBoxHeight () {
-    return this.state.sendPassword ? '400px' : '460px'
+    return this.state.sendPassword ? '400px' : '480px'
   }
 
   handleMessageVisibility () {
@@ -109,7 +109,7 @@ class Login extends React.Component {
 
   handlePasswordText () {
     const needsBackToLogin = this.state.sendPassword || this.props.authStatus === AuthenticationStatus.TEMPORARY
-    return needsBackToLogin ? 'Back to log in' : 'Create or forgot password?'
+    return needsBackToLogin ? 'Back to log in' : 'Forgot password?'
   }
 
   handleSecondType () {
@@ -150,6 +150,15 @@ class Login extends React.Component {
           <button id='action' className={classes.loginButton} onClick={this.handleButtonClick}>
             {this.handleButtonText()}
           </button>
+          {this.state.sendPassword || this.props.authStatus === AuthenticationStatus.TEMPORARY ? null
+            : (
+            <a href={'https://hackduke.typeform.com/to/pZb8zj?route_receive_participant=xxxxx'}>
+              <button id='action' className={classes.registerButton}>
+                Register
+              </button>
+            </a>
+              )
+          }
           <button className={classes.textButton} onClick={this.handlePasswordClick}> {this.state.bottomText}
             {this.handlePasswordText()}
           </button>

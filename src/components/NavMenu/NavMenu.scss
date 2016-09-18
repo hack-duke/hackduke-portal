@@ -22,7 +22,9 @@
 	text-shadow: none;
 	border: none;
 	box-shadow: none;
-	display: fixed;
+	display: inline-block;
+	overflow: auto;
+  position: fixed;
 	top: 10px;
   -webkit-transition: left 0.5s;
 	transition: left 0.5s;

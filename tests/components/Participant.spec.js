@@ -20,9 +20,6 @@ describe('(Component) Participant', () => {
         "attending": null,
         "major": "Computer Science",
         "school": "North Carolina State University",
-        "dietary_restrictions": [
-          "None"
-        ],
         "website": null,
         "resume": null,
         "github": "www.github.com",
@@ -36,7 +33,7 @@ describe('(Component) Participant', () => {
           "asdasd"
         ]
       },
-      person: {'first_name': 'George', 'email': 'george.smith@gmail.com'},
+      person: {'first_name': 'George', 'email': 'george.smith@gmail.com', "dietary_restrictions": [ "None" ]},
       roleType: 'participant accepted',
     }
     _wrapper = shallow(<Participant {..._props} />)
@@ -79,8 +76,8 @@ describe('(Component) Participant', () => {
   })
 
   it('has 0 list containers for when dietary restrictions and skills are empty', () => {
-    const participant = { ..._wrapper.instance().props.participant, dietary_restrictions: []}
-    _wrapper.setProps({participant: participant})
+    const person = { ..._wrapper.instance().props.person, dietary_restrictions: []}
+    _wrapper.setProps({person: person})
     expect(_wrapper.find('.' + classes.listContainer)).to.have.length(0)
   })
 
