@@ -9,7 +9,7 @@ class Application extends React.Component {
   componentWillReceiveProps () {
     const that = this
     updateChannel.bind('trigger_update', function (data) {
-      that.props.fetchParticipant(that.props.participant['person']['email'], 'design_con', 2016, 'spring')
+      that.props.fetchParticipant(that.props.participant['person']['email'], 'code_for_good', 2016, 'fall')
     })
   }
 
