@@ -111,7 +111,7 @@ export const authenticate = (email, password) => {
   return (dispatch, getState) => {
     dispatch(requestAuthentication())
     if (email !== null || email !== '') {
-      let lowerCaseEmail = email.toLowerCase()
+      let lowerCaseEmail = email.toLowerCase().trim()
       let sessionToken = localStorage.getItem('session')
       try {
         localStorage.setItem('email', lowerCaseEmail)
@@ -134,7 +134,7 @@ export const resetPassword = (email) => {
   return (dispatch, getState) => {
     dispatch(requestResetPassword())
     if (email != null) {
-      const body = JSON.stringify({ email: email.toLowerCase(), season: 'fall',
+      const body = JSON.stringify({ email: email.toLowerCase().trim(), season: 'fall',
                                     year: '2016', event_type: 'code_for_good' })
       fetchAPI('POST', body, 'people/reset_password')
       .then(data => data.json())
