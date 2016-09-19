@@ -28,8 +28,8 @@ class NavMenu extends React.Component {
   }
 
   handleClick () {
-    const menuLeft = !this.state.enabled ? '0px' : `-${navMenuWidth}px`
-    const buttonLeft = !this.state.enabled ? `${navMenuWidth}px` : '0px'
+    const menuLeft = !this.state.enabled || window.innerWidth > tabletBreakpoint ? '0px' : `-${navMenuWidth}px`
+    const buttonLeft = !this.state.enabled || window.innerWidth > tabletBreakpoint ? `${navMenuWidth}px` : '0px'
     this.setState({menuLeft: menuLeft, buttonLeft: buttonLeft, enabled: !this.state.enabled})
   }
 
@@ -49,13 +49,16 @@ class NavMenu extends React.Component {
           style={{'left': `${this.state.menuLeft}`}}>
           <img src='hackduke-logo.png' alt='Hackduke Logo' />
           <div className={classes.menuItem}>
-            <IndexLink className={classes.linkElement} to={'/dashboard'}>DASHBOARD</IndexLink>
+            <IndexLink onClick={this.handleClick} className={classes.linkElement}
+              to={'/dashboard'}>DASHBOARD</IndexLink>
           </div>
           <div className={classes.menuItem}>
-            <IndexLink className={classes.linkElement} to={'/application'}>APPLICATION</IndexLink>
+            <IndexLink onClick={this.handleClick} className={classes.linkElement}
+              to={'/application'}>APPLICATION</IndexLink>
           </div>
-          <div className={classes.menuItem} style={{'paddingBottom': '90px'}}>
-            <IndexLink onClick={this.props.logout} className={classes.linkElement} to={'/login'}>LOGOUT</IndexLink>
+          <div className={classes.menuItem}>
+            <IndexLink onClick={this.props.logout} className={classes.linkElement}
+              to={'/login'}>LOGOUT</IndexLink>
           </div>
         </div>
       </div>
