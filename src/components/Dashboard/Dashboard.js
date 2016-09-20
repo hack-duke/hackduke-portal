@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './Dashboard.scss'
-// import { tagFromRole, tagColorFromRole } from 'extensions/tagUtils'
+import { tagFromRole, tagColorFromRole } from 'extensions/tagUtils'
 
 class Dashboard extends React.Component {
 
@@ -36,6 +36,16 @@ class Dashboard extends React.Component {
                 {this.props.participant ? (
                 `${this.props.participant['role']['status'].toUpperCase()}`
                 ) : null}
+              </div>
+
+              <div>
+              {this.props.participant.map((participant, index) =>
+                <div style={{'backgroundColor': tagColorFromRole(participant['role']['status'])}}
+                  className={classes.womp}
+                  key={index}>
+                  {tagFromRole(participant['role']['status'])}
+                </div>
+              )}
               </div>
 
               <div className={classes.aboutText}>

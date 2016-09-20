@@ -1,14 +1,12 @@
 import { humanize } from './stringUtils'
 
 export const tagColorMap = {
-  'participant': '#EE5A63',
-  'participant accepted': '#1A7790', // grey blue
-  'participant rejected': '#EE5A63', // red
-  'participant waitlisted': '#FEC60D', // yellow
-  'participant confirmed': '#24BAB9', // turquoise
-  'mentor': '#584AD3', // purple
-  'speaker': '#24A0EC', // blue
-  'judge': '#415263' // gray black
+  'registered': '#EE5A63',
+  'accepted': '#1A7790', // grey blue
+  'rejected': '#EE5A63', // red
+  'confirmed': '#24BAB9', // turquoise
+  'waitlisted': '#FEC60D', // yellow
+  'attended': '#584AD3' // purple
 }
 
 export function tagColorFromRole (role) {
