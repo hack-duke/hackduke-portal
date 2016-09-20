@@ -7,7 +7,6 @@ class Dashboard extends React.Component {
 
   static propTypes = {
     participant: React.PropTypes.object
-    // fetchParticipant: React.PropTypes.func.isRequired
   }
 
   render () {
