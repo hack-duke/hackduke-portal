@@ -6,7 +6,8 @@ import { updateChannel } from 'pusher/updateChannel'
 
 class Application extends React.Component {
 
-  componentWillReceiveProps () {
+  constructor () {
+    super()
     const that = this
     updateChannel.bind('trigger_update', function (data) {
       that.props.fetchParticipant(that.props.participant['person']['email'], 'code_for_good', 2016, 'fall')
