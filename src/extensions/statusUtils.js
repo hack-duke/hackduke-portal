@@ -7,6 +7,8 @@ export const statusColorMap = {
   'attended': '#584AD3' // purple
 }
 
+/*eslint max-len: ["error", { "ignoreStrings": true }]*/
+
 export const statusMessageMap = {
   'registered': 'Thanks for registering for HackDuke! Please check back later for your status. Good luck!',
   'accepted': 'Congratulations! You’ve been accepted to HackDuke! We’ll be sending out emails with more information closer to the event. ',
