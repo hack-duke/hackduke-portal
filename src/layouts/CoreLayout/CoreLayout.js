@@ -36,7 +36,7 @@ class CoreLayout extends React.Component {
   }
 
   mainContainerPadding () {
-    return !this.hasLoggedIn() || this.state.width <= tabletBreakpoint ? '0px' : `${navMenuWidth}px`
+    return !this.hasLoggedIn() || this.state.width <= tabletBreakpoint ? '0px' : `${desktopNavMenuWidth}%`
   }
 
   render () {
