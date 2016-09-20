@@ -22,7 +22,9 @@
 	text-shadow: none;
 	border: none;
 	box-shadow: none;
-	display: block;
+	display: inline-block;
+	overflow: auto;
+  position: fixed;
 	top: 10px;
   -webkit-transition: left 0.5s;
 	transition: left 0.5s;
@@ -64,6 +66,10 @@
 }
 
 @media (min-width: $tabletBreakpoint) {
+
+	.navMenu {
+		width: $desktopNavMenuWidth;
+	}
 
 	.navMenu img {
 		padding: 12vh 0 10vh 0;
