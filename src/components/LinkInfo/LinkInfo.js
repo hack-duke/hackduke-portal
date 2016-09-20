@@ -27,7 +27,7 @@ class LinkInfo extends React.Component {
             className={classes.link}
             key={index}
             target={'_blank'}>
-              {title}
+            {title}
           </a>
         ), ', ')}
       </div>

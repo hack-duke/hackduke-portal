@@ -1,5 +1,3 @@
-import { humanize } from './stringUtils'
-
 export const statusColorMap = {
   'registered': '#1AB6F6', // bright blue
   'accepted': '#1AB6F6', // bright blue
@@ -9,19 +7,15 @@ export const statusColorMap = {
   'attended': '#584AD3' // purple
 }
 
+/*eslint max-len: ["error", { "ignoreStrings": true }]*/
+
 export const statusMessageMap = {
-  'registered': 'Thanks for registering for HackDuke! \
-  Please check back later for your status. Good luck!',
-  'accepted': 'Congratulations! You’ve been accepted to HackDuke! \
-  We’ll be sending out emails with more information closer to the event. ',
-  'rejected': 'Unfortunately, we were unable to offer you a spot at HackDuke this year. \
-  Thank you for your interest, and we hope to hear from you next year. ',
-  'confirmed': 'Whoo! Thanks for confirming your attendance. \
-  We can’t wait to see you at Duke!',
-  'waitlisted': 'Hang tight! You’ve been put on our waitlist. \
-  We will send you an email if a spot opens up!',
-  'attended': 'Thanks for attending HackDuke! \
-  See you next year!'
+  'registered': 'Thanks for registering for HackDuke! Please check back later for your status. Good luck!',
+  'accepted': 'Congratulations! You’ve been accepted to HackDuke! We’ll be sending out emails with more information closer to the event. ',
+  'rejected': 'Unfortunately, we were unable to offer you a spot at HackDuke this year. Thank you for your interest, and we hope to hear from you next year. ',
+  'confirmed': 'Whoo! Thanks for confirming your attendance. We can’t wait to see you at Duke!',
+  'waitlisted': 'Hang tight! You’ve been put on our waitlist. We will send you an email if a spot opens up!',
+  'attended': 'Thanks for attending HackDuke! See you next year!'
 }
 
 export function statusColorFromRole (status) {
