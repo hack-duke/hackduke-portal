@@ -25,7 +25,7 @@ class Dashboard extends React.Component {
               </div>
 
               <div className={classes.catDiv}>
-                <img className={classes.image} src={Cat}/>
+                <img className={classes.image} src={Cat} />
               </div>
 
               <div className={classes.statusLabelText}>
