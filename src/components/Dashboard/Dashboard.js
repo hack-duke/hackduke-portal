@@ -39,7 +39,6 @@ class Dashboard extends React.Component {
                 {statusMessageFromRole(this.props.participant ? (
                     this.props.participant['role']['status']) : 'registered')}
               </div>
-
             </div>
           </div>
         </div>
