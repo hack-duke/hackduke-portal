@@ -11,7 +11,8 @@ For example:
 @import './themes/default';
 */
 
-$navMenuWidth: 300px;
+$navMenuWidth: 270px;
+$desktopNavMenuWidth: 25%;
 
 $navLight: #192738;
 $navDark: #0F1B27;
@@ -30,5 +31,5 @@ $acceptedBlue: #1AB6F6;
 $expiredRed: #FF6D78;
 $waitlistGreen: #21E1C9;
 
-$tabletBreakpoint: 769px;
+$tabletBreakpoint: 767px;
 $desktopBreakpoint: 1024px;

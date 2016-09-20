@@ -1,6 +1,6 @@
 import React from 'react'
 import NavMenu from 'redux/containers/NavMenuContainer'
-import { navMenuWidth, tabletBreakpoint } from 'constants/design'
+import { desktopNavMenuWidth, tabletBreakpoint } from 'constants/design'
 import '../../styles/core.scss'
 
 class CoreLayout extends React.Component {
@@ -32,7 +32,8 @@ class CoreLayout extends React.Component {
   }
 
   mainContainerPadding () {
-    return window.location.href.includes('/login') || this.state.width <= tabletBreakpoint ? '0px' : `${navMenuWidth}px`
+    return window.location.href.includes('/login') || this.state.width <= tabletBreakpoint
+      ? '0px' : `${desktopNavMenuWidth}%`
   }
 
   render () {
