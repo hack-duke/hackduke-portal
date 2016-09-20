@@ -7,6 +7,7 @@ import { updateChannel } from 'pusher/updateChannel'
 class Application extends React.Component {
 
   constructor () {
+    super()
     const that = this
     updateChannel.bind('trigger_update', function (data) {
       console.log('hi')
