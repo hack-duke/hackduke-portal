@@ -1,7 +1,8 @@
 import React from 'react'
 import Dashboard from 'components/Dashboard'
 import classes from 'components/Dashboard/Dashboard.scss'
-import { shallow} from 'enzyme'
+import {statusColorFromRole, statusMessageFromRole} from 'extensions/statusUtils'
+import {shallow} from 'enzyme'
 
 describe('(Component) Dashboard', () => {
   let _props, _spies, _wrapper
@@ -13,7 +14,7 @@ describe('(Component) Dashboard', () => {
         'role': {
           'event_id': 13,
           'team_id': null,
-          'status': 'accepted',
+          'status': 'rejected',
           'graduation_year': 2018,
           'over_eighteen': 1,
           'attending': null,
@@ -40,7 +41,6 @@ describe('(Component) Dashboard', () => {
     _wrapper = shallow(<Dashboard {..._props} />)
   })
 
-
   it('renders a header', function () {
     expect(_wrapper.find('.' + classes.header).filterWhere(p => p.text() === 'DASHBOARD')).to.have.length(1)
   })
@@ -51,6 +51,14 @@ describe('(Component) Dashboard', () => {
 
   it('renders the correct status', function() {
     expect(_wrapper.find('.' + classes.status).filterWhere(p => p.text() === _props.participant['role']['status'].toUpperCase())).to.have.length(1)
+  })
+
+  it('renders about text', function() {
+    expect(_wrapper.find('.' + classes.aboutText)).to.have.length(1)
+  })
+
+  it('renders the correct about text', function() {
+    expect(_wrapper.find('.' + classes.aboutText).filterWhere(p => p.text() === statusMessageFromRole(_props.participant['role']['status']))).to.have.length(1)
   })
 
 })
