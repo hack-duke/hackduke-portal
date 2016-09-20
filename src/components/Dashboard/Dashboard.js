@@ -22,13 +22,6 @@ class Dashboard extends React.Component {
                   {titleText}
               </div>
 
-              <div className={classes.aboutText}>
-                <a href='#'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                  labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-                </a>
-              </div>
-
               <div className={classes.statusLabelText}>
                 {statusLabel}
               </div>
@@ -42,10 +35,9 @@ class Dashboard extends React.Component {
               </div>
 
               <div className={classes.aboutText}>
-                <a href='#'>
                   {statusMessageFromRole(this.props.participant ? this.props.participant['role']['status'] : 'registered')}
-                </a>
               </div>
+
             </div>
           </div>
         </div>
