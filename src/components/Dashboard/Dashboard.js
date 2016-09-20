@@ -5,7 +5,7 @@ import {statusColorFromRole, statusMessageFromRole} from 'extensions/statusUtils
 class Dashboard extends React.Component {
 
   static propTypes = {
-    participant: React.PropTypes.object,
+    participant: React.PropTypes.object
     // fetchParticipant: React.PropTypes.func.isRequired
   }
 
