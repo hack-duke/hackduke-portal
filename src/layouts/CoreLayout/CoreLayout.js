@@ -27,12 +27,16 @@ class CoreLayout extends React.Component {
     this.setState({width: window.innerWidth})
   }
 
+  hasLoggedIn () {
+    return window.location.href.includes('/dashboard') || window.location.href.includes('/application')
+  }
+
   navMenuDisplay () {
-    return window.location.href.includes('/login') ? 'none' : 'block'
+    return hasLoggedIn() ? 'block' : 'none'
   }
 
   mainContainerPadding () {
-    return window.location.href.includes('/login') || this.state.width <= tabletBreakpoint ? '0px' : `${navMenuWidth}px`
+    return !hasLoggedIn() || this.state.width <= tabletBreakpoint ? '0px' : `${navMenuWidth}px`
   }
 
   render () {
