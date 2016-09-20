@@ -95,7 +95,7 @@ class Login extends React.Component {
     if (this.state.sendPassword) {
       return 'Send password'
     } else {
-      return this.props.authStatus === AuthenticationStatus.TEMPORARY ? 'Set password' : 'Log in'
+      return this.props.authStatus === AuthenticationStatus.TEMPORARY ? 'Set password' : 'Login'
     }
   }
 
