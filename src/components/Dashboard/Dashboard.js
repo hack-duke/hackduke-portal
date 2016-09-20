@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './Dashboard.scss'
 import {statusColorFromRole, statusMessageFromRole} from 'extensions/statusUtils'
+import Cat from './assets/hackkitty_vector_1.jpg'
 
 class Dashboard extends React.Component {
 
@@ -21,6 +22,10 @@ class Dashboard extends React.Component {
             <div className={classes.contentContainer}>
               <div className={classes.header}>
                 {titleText}
+              </div>
+
+              <div className={classes.catDiv}>
+                <img className={classes.image} src={Cat}/>
               </div>
 
               <div className={classes.statusLabelText}>

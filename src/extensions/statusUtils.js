@@ -1,10 +1,10 @@
 export const statusColorMap = {
-  'registered': '#1AB6F6', // bright blue
+  'registered': '#FD44AB', // turquoise
   'accepted': '#1AB6F6', // bright blue
   'rejected': '#FF6D78', // red
-  'confirmed': '#24BAB9', // turquoise
-  'waitlisted': '#21E1C9', // green
-  'attended': '#584AD3' // purple
+  'confirmed': '#21E1C9', // turquoise
+  'waitlisted': '#F4DC4D', // yellow
+  'attended': '#70338B' // purple
 }
 
 export const statusMessageMap = {
