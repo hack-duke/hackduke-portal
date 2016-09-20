@@ -10,8 +10,11 @@ class Application extends React.Component {
     super()
     const that = this
     updateChannel.bind('trigger_update', function (data) {
-      console.log('hi')
-      that.props.fetchParticipant(that.props.participant['person']['email'], 'code_for_good', 2016, 'fall')
+      let email = localStorage.getItem('email')
+      if (email === '' || email === null) {
+        email = document.cookie.split('=')[1]
+      }
+      that.props.fetchParticipant(email, 'code_for_good', 2016, 'fall')
     })
   }
 
