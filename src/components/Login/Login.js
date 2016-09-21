@@ -109,7 +109,7 @@ class Login extends React.Component {
 
   handlePasswordText () {
     const needsBackToLogin = this.state.sendPassword || this.props.authStatus === AuthenticationStatus.TEMPORARY
-    return needsBackToLogin ? 'Back to log in' : 'Forgot password?'
+    return needsBackToLogin ? 'Back to log in' : 'Forgot or reset password?'
   }
 
   handleSecondType () {

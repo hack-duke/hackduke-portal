@@ -30,14 +30,14 @@ describe('(Component) Login', () => {
     expect(_wrapper.find('input').at(1).node.props.placeholder.trim()).to.eql('Password')
     expect(_wrapper.find('button').at(0).text().trim()).to.eql('Login')
     expect(_wrapper.find('button').at(1).text().trim()).to.eql('Apply Now')
-    expect(_wrapper.find('button').at(2).text().trim()).to.eql('Forgot password?')
+    expect(_wrapper.find('button').at(2).text().trim()).to.eql('Forgot or reset password?')
     expect(_wrapper.find('input')).to.have.length(2)
     expect(_wrapper.find('button')).to.have.length(3)
     expect(_wrapper.find('img')).to.have.length(1)
   })
 
   it('renders 1 input, 2 buttons, and a logo image with correct text when clicking password help', () => {
-    expect(_wrapper.find('button').at(2).text().trim()).to.eql('Forgot password?')
+    expect(_wrapper.find('button').at(2).text().trim()).to.eql('Forgot or reset password?')
     _wrapper.find('button').at(2).simulate('click');
     expect(_wrapper.find('input').at(0).node.props.placeholder.trim()).to.eql('Email')
     expect(_wrapper.find('button').at(0).text().trim()).to.eql('Send password')
@@ -65,7 +65,7 @@ describe('(Component) Login', () => {
     expect(_wrapper.find('input').at(1).node.props.placeholder.trim()).to.eql('Password')
     expect(_wrapper.find('button').at(0).text().trim()).to.eql('Login')
     expect(_wrapper.find('button').at(1).text().trim()).to.eql('Apply Now')
-    expect(_wrapper.find('button').at(2).text().trim()).to.eql('Forgot password?')
+    expect(_wrapper.find('button').at(2).text().trim()).to.eql('Forgot or reset password?')
     expect(_wrapper.find('input')).to.have.length(2)
     expect(_wrapper.find('button')).to.have.length(3)
     expect(_wrapper.find('img')).to.have.length(1)
