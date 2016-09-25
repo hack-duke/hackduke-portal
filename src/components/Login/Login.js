@@ -13,6 +13,10 @@ class Login extends React.Component {
     this.handleFirstChange = this.handleFirstChange.bind(this)
     this.handleSecondChange = this.handleSecondChange.bind(this)
     this.handleEnter = this.handleEnter.bind(this)
+    const that = this
+    window.addEventListener('popstate', function(event) {
+      that.props.authenticate(localStorage.getItem('email'), 'password')
+    })
   }
 
   static propTypes = {
