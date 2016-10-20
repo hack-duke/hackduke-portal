@@ -55,7 +55,6 @@ class Login extends React.Component {
   }
 
   handleButtonClick () {
-    this.props.updateMessage('')
     this.setState({showMessage: true})
     const first = this.state.firstValue
     if (this.state.sendPassword) {

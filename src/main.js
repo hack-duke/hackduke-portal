@@ -14,6 +14,7 @@ const browserHistory = useRouterHistory(createBrowserHistory)({
   basename: __BASENAME__
 })
 
+
 // ========================================================
 // Store and History Instantiation
 // ========================================================
