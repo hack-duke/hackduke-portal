@@ -12,10 +12,10 @@ class StatusText extends React.Component {
   render () {
     return (
       <div>
-        <div className={classes.aboutText}>
+        <div>
           {statusMessageFromRole(this.props.status)}
         </div>
-        <div className={classes.aboutText}>
+        <div>
           {this.props.email}
         </div>
       </div>

@@ -44,7 +44,7 @@ class Dashboard extends React.Component {
                 <StatusText status={this.props.participant ? (
                   this.props.participant['role']['status']) : 'registered'}
                   email={this.props.participant
-                  ? this.props.participant['Email'] : 'test@duke.edu'} />
+                  ? this.props.participant['person']['email'] : 'test@duke.edu'} />
               </div>
             </div>
           </div>
