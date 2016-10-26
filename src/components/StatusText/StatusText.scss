@@ -1,0 +1,20 @@
+@import 'src/styles/base';
+
+.status {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-weight: 600;
+  color: $acceptedBlue;
+  font-size: 36px;
+  margin: 0 0 3vh 0;
+}
+
+.statusLabelText {
+  font-family: 'Avenir Next', sans-serif;
+  text-align: center;
+  font-weight: 400;
+  opacity: 0.7;
+  color: $standardText;
+  font-size: 15px;
+  margin: 0 0 0 0;
+}

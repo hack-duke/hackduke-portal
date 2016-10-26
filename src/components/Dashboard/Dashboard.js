@@ -2,6 +2,7 @@ import React from 'react'
 import classes from './Dashboard.scss'
 import {statusColorFromRole, statusMessageFromRole} from 'extensions/statusUtils'
 import Cat from './assets/hackkitty_vector_1.jpg'
+import StatusText from 'components/StatusText'
 
 class Dashboard extends React.Component {
 
@@ -40,8 +41,10 @@ class Dashboard extends React.Component {
               </div>
 
               <div className={classes.aboutText}>
-                {statusMessageFromRole(this.props.participant ? (
-                    this.props.participant['role']['status']) : 'registered')}
+                <StatusText status={this.props.participant ? (
+                  this.props.participant['role']['status']) : 'registered'}
+                  email={this.props.participant
+                  ? this.props.participant['Email'] : 'test@duke.edu'} />
               </div>
             </div>
           </div>
@@ -49,6 +52,21 @@ class Dashboard extends React.Component {
       </div>
     )
   }
+}
+
+function generateTextWithTwoLinks (beforeText, link1, linkText1, middleText, link2, linkText2, afterText) {
+  return (
+    <div>
+      {beforeText}
+      {' '}
+      <a href={link1} className={classes.link}>{linkText1}</a>
+      {' '}
+      {middleText}
+      {' '}
+      <a href={link2} className={classes.link}>{linkText2}</a>
+      {afterText}
+    </div>
+  )
 }
 
 export default Dashboard
