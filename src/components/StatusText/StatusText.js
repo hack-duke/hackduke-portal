@@ -13,7 +13,7 @@ class StatusText extends React.Component {
     return (
       <div>
         <div>
-          {(this.props.status === 'registered') ? (
+          {(this.props.status === 'accepted') ? (
             generateAcceptedJSX(this.props.email)
           ) : statusMessageFromRole(this.props.status)
           }
