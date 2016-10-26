@@ -1,17 +1,17 @@
 @import 'src/styles/base';
 
 // Creates fake links in order to change text color to blue on hover
-a, a:link, a:active, a:visited {
-    text-decoration:none;
-    color: $standardText;
-    cursor: text;
-}
+// a, a:link, a:active, a:visited {
+//     text-decoration:none;
+//     color: $standardText;
+//     cursor: text;
+// }
 
-a:hover {
-  text-decoration:none;
-  color: $acceptedBlue;
-  cursor: text;
-}
+// a:hover {
+//   text-decoration:none;
+//   color: $acceptedBlue;
+//   cursor: text;
+// }
 
 .background {
   height: 100vh;
