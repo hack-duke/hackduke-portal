@@ -1,5 +1,5 @@
 import React from 'react'
-import {statusColorFromRole, statusMessageFromRole} from 'extensions/statusUtils'
+import {statusMessageFromRole} from 'extensions/statusUtils'
 import classes from './StatusText.scss'
 
 class StatusText extends React.Component {
@@ -13,27 +13,29 @@ class StatusText extends React.Component {
     return (
       <div>
         <div>
-          {statusMessageFromRole(this.props.status)}
-        </div>
-        <div>
-          {this.props.email}
+          {(this.props.status === 'registered') ? (
+            generateAcceptedJSX(this.props.email)
+          ) : statusMessageFromRole(this.props.status)
+          }
         </div>
       </div>
     )
   }
 }
 
-function generateTextWithTwoLinks (beforeText, link1, linkText1, middleText, link2, linkText2, afterText) {
+function generateAcceptedJSX (email) {
   return (
     <div>
-      {beforeText}
+      {'Congratulations! You’ve been accepted to HackDuke! Please'}
       {' '}
-      <a href={link1} className={classes.link}>{linkText1}</a>
+      <a href={'https://hackduke.typeform.com/to/Dq5qeE?route_update_participant=xxxxx&email=' + email}
+        className={classes.link}>{'confirm'}</a>
       {' '}
-      {middleText}
+      {'you\'re coming and'}
       {' '}
-      <a href={link2} className={classes.link}>{linkText2}</a>
-      {afterText}
+      <a href={'https://hackduke.typeform.com/to/w4ZA3F?route_update_participant=xxxxx&email=' + email}
+        className={classes.link}>{'upload'}</a>
+      {' any reimbursement materials.'}
     </div>
   )
 }
