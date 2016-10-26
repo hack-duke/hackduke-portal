@@ -19,7 +19,7 @@
   margin: 0 0 0 0;
 }
 
-.link {
-  font-weight: 600;
-  // text-decoration: underline;
+a:link {
+    text-decoration: underline;
+    font-weight: 600;
 }
