@@ -58,8 +58,8 @@ function generateAcceptedJSX (email) {
       <a href={'https://hackduke.typeform.com/to/w4ZA3F?route_update_participant=xxxxx&email=' + email}
         className={classes.link}>{'upload'}</a>
       {' receipts by '}
-      <div className={classes.bold}> 
-        Saturday 10/29/2016 
+      <div className={classes.bold}>
+        Saturday 10/29/2016
       </div>
       {'. We will reimburse up to $200 for flights and $50 for gas.'}
     </div>
