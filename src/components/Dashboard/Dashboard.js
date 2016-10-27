@@ -1,7 +1,8 @@
 import React from 'react'
 import classes from './Dashboard.scss'
-import {statusColorFromRole, statusMessageFromRole} from 'extensions/statusUtils'
+import {statusColorFromRole} from 'extensions/statusUtils'
 import Cat from './assets/hackkitty_vector_1.jpg'
+import StatusText from 'components/StatusText'
 
 class Dashboard extends React.Component {
 
@@ -40,8 +41,10 @@ class Dashboard extends React.Component {
               </div>
 
               <div className={classes.aboutText}>
-                {statusMessageFromRole(this.props.participant ? (
-                    this.props.participant['role']['status']) : 'registered')}
+                <StatusText status={this.props.participant ? (
+                  this.props.participant['role']['status']) : 'registered'}
+                  email={this.props.participant
+                  ? this.props.participant['person']['email'] : 'test@duke.edu'} />
               </div>
             </div>
           </div>
