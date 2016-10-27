@@ -13,20 +13,42 @@ class StatusText extends React.Component {
     return (
       <div>
         <div>
-          {(this.props.status === 'accepted') ? (
-            generateAcceptedJSX(this.props.email)
-          ) : statusMessageFromRole(this.props.status)
-          }
+          {generateMessage(this.props.status, this.props.email)}
         </div>
       </div>
     )
   }
 }
 
+function generateMessage (status, email) {
+  if (status === 'accepted') {
+    return generateAcceptedJSX(email)
+  } else if (status === 'confirmed') {
+    return generateConfirmedJSX(email)
+  } else {
+    return statusMessageFromRole(status)
+  }
+}
+
+function generateConfirmedJSX (email) {
+  return (
+    <div>
+      {'Whoo! Thanks for confirming. We can\'t wait to see you at Duke! Don\'t forget to '}
+      <a href={'https://hackduke.typeform.com/to/w4ZA3F?route_update_participant=xxxxx&email=' + email}
+        className={classes.link}>{'upload'}</a>
+      {' receipts by '}
+      <div className={classes.bold}>
+        Saturday 10/29/2016
+      </div>
+      {'. We will reimburse up to $200 for flights and $50 for gas.'}
+    </div>
+  )
+}
+
 function generateAcceptedJSX (email) {
   return (
     <div>
-      {'Congratulations! You’ve been accepted to HackDuke! Please'}
+      {'Congratulations! You’ve been accepted! Please'}
       {' '}
       <a href={'https://hackduke.typeform.com/to/Dq5qeE?route_update_participant=xxxxx&email=' + email}
         className={classes.link}>{'confirm'}</a>
@@ -35,8 +57,8 @@ function generateAcceptedJSX (email) {
       {' '}
       <a href={'https://hackduke.typeform.com/to/w4ZA3F?route_update_participant=xxxxx&email=' + email}
         className={classes.link}>{'upload'}</a>
-      {' plane receipts by '}
-      <div className={classes.bold}> Saturday 10/29/2016. </div>
+      {' receipts by Saturday 10/29/2016. We will reimburse up '}
+      <div className={classes.bold}> to $200 for flights and $50 for gas.</div>
     </div>
   )
 }
