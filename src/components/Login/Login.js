@@ -55,7 +55,6 @@ class Login extends React.Component {
   }
 
   handleButtonClick () {
-    this.props.updateMessage('')
     this.setState({showMessage: true})
     const first = this.state.firstValue
     if (this.state.sendPassword) {
@@ -154,14 +153,13 @@ class Login extends React.Component {
           <button id='action' className={classes.loginButton} onClick={this.handleButtonClick}>
             {this.handleButtonText()}
           </button>
-          {this.state.sendPassword || this.props.authStatus === AuthenticationStatus.TEMPORARY ? null
-            : (
+          {this.state.sendPassword || this.props.authStatus === AuthenticationStatus.TEMPORARY ? null : (
             <a href={'https://hackduke.typeform.com/to/pZb8zj?route_receive_participant=xxxxx'}>
               <button id='action' className={classes.registerButton}>
                 Apply Now
               </button>
             </a>
-              )
+            )
           }
           <button className={classes.textButton} onClick={this.handlePasswordClick}> {this.state.bottomText}
             {this.handlePasswordText()}
