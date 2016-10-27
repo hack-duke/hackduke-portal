@@ -35,7 +35,8 @@ function generateAcceptedJSX (email) {
       {' '}
       <a href={'https://hackduke.typeform.com/to/w4ZA3F?route_update_participant=xxxxx&email=' + email}
         className={classes.link}>{'upload'}</a>
-      {' any reimbursement materials.'}
+      {' plane receipts by '}
+      <div className={classes.bold}> Saturday 10/29/2016. </div>
     </div>
   )
 }

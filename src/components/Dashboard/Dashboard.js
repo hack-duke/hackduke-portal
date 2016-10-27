@@ -11,6 +11,7 @@ class Dashboard extends React.Component {
   }
 
   render () {
+    console.log(this.props.participant)
     const statusLabel = 'YOUR STATUS:'
     const titleText = 'DASHBOARD'
     var divStyle = {color: statusColorFromRole(this.props.participant ? (

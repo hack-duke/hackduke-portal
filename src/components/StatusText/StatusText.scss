@@ -20,6 +20,11 @@
 }
 
 a:link {
-    text-decoration: underline;
-    font-weight: 600;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.bold {
+  display: inline-block;
+  font-weight: 600;
 }
