@@ -33,14 +33,10 @@ function generateMessage (status, email) {
 function generateConfirmedJSX (email) {
   return (
     <div>
-      {'Whoo! Thanks for confirming. We can\'t wait to see you at Duke! Don\'t forget to '}
+      {'Whoo! Thanks for confirming. We can\'t wait to see you! If you\'re flying or driving from out-of-state, don\'t forget to '}
       <a href={'https://hackduke.typeform.com/to/w4ZA3F?route_update_participant=xxxxx&email=' + email}
         className={classes.link}>{'upload'}</a>
-      {' receipts by '}
-      <div className={classes.bold}>
-        Friday 11/4/2016
-      </div>
-      {'. We will reimburse up to $200 for flights and $50 for gas.'}
+      {' receipts. We will reimburse up to $200 for flights and $50 for gas.'}
     </div>
   )
 }
