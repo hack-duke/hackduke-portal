@@ -14,7 +14,7 @@ describe('(Component) Dashboard', () => {
         'role': {
           'event_id': 13,
           'team_id': null,
-          'status': 'rejected',
+          'status': 'accepted',
           'graduation_year': 2018,
           'over_eighteen': 1,
           'attending': null,
