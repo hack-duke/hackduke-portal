@@ -44,19 +44,16 @@ function generateConfirmedJSX (email) {
 function generateAcceptedJSX (email) {
   return (
     <div>
-      {'Congratulations! You’ve been accepted! Please'}
+      {'Congratulations! You’ve been accepted to HackDuke! Please'}
       {' '}
       <a href={'https://hackduke.typeform.com/to/Dq5qeE?route_update_participant=xxxxx&email=' + email}
         className={classes.link}>{'confirm'}</a>
       {' '}
       {'you\'re coming by '}
       <div className={classes.bold}>
-        Wednesday, 11/9.
+        Monday, 11/14.
       </div>
-      {' If you\'re flying, please ' }
-      <a href={'https://hackduke.typeform.com/to/w4ZA3F?route_update_participant=xxxxx&email=' + email}
-        className={classes.link}>{'upload'}</a>
-      {' your flight receipts. We will reimburse up to $200 for flights.'}
+      {' Our process has been more rigorous than in previous years, so you must confirm to guarantee your spot!'}
     </div>
   )
 }
