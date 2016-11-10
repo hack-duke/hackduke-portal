@@ -44,7 +44,7 @@ function generateConfirmedJSX (email) {
 function generateAcceptedJSX (email) {
   return (
     <div>
-      {'Congratulations! You’ve been accepted to HackDuke! Please'}
+      {'Congratulations! You’ve been accepted! Please'}
       {' '}
       <a href={'https://hackduke.typeform.com/to/Dq5qeE?route_update_participant=xxxxx&email=' + email}
         className={classes.link}>{'confirm'}</a>
@@ -53,7 +53,7 @@ function generateAcceptedJSX (email) {
       <div className={classes.bold}>
         Monday, 11/14.
       </div>
-      {' Our process has been more rigorous than in previous years, so you must confirm to guarantee your spot!'}
+      {' Our process has been more rigorous than in previous years, so you must confirm to guarantee your spot. We won\'t be accepting walk-ins the day of.'}
     </div>
   )
 }
