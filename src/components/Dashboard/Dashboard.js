@@ -10,6 +10,14 @@ class Dashboard extends React.Component {
     participant: React.PropTypes.object
   }
 
+  renderStatus (status) {
+    console.log(status)
+    if (status === 'REJECTED') {
+      return 'Not Accepted'
+    }
+    return status
+  }
+
   render () {
     const statusLabel = 'YOUR STATUS:'
     const titleText = 'DASHBOARD'
@@ -35,7 +43,7 @@ class Dashboard extends React.Component {
               <div className={classes.status} >
                 <div style={divStyle}>
                   {this.props.participant ? (
-                  `${this.props.participant['role']['status'].toUpperCase()}`
+                    this.renderStatus(this.props.participant['role']['status'].toUpperCase())
                   ) : null}
                 </div>
               </div>
