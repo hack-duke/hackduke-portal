@@ -11,7 +11,6 @@ class Dashboard extends React.Component {
   }
 
   renderStatus (status) {
-    console.log(status)
     if (status === 'REJECTED') {
       return 'Not Accepted'
     }
