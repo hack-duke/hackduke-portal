@@ -47,7 +47,9 @@ class NavMenu extends React.Component {
         </button>
         <div className={classes.navMenu}
           style={{'left': `${this.state.menuLeft}`}}>
-          <img src='hackduke-logo.png' alt='Hackduke Logo' />
+          <a href={'https://www.hackduke.org'}>
+            <img src='hackduke-logo.png' alt='Hackduke Logo' />
+          </a>
           <div className={classes.menuItem}>
             <IndexLink onClick={this.handleClick} className={classes.linkElement}
               to={'/dashboard'}>DASHBOARD</IndexLink>
