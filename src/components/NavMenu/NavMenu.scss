@@ -1,5 +1,14 @@
 @import 'src/styles/base';
 
+@font-face {
+  font-family: 'Montserrat Light';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Light'), local('Montserrat-Light'),
+      url(static/fonts/montserrat-light.woff) format('woff'),
+      url(static/fonts/montserrat-light.ttf) format('truetype');
+}
+
 .navMenu {
 	background-image: url('static/dashboard.png');
 	background-size: 100% 100%;
