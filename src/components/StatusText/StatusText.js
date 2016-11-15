@@ -36,7 +36,7 @@ function generateConfirmedJSX (email) {
       {'Whoo! We can\'t wait to see you! If you\'re flying or driving from out-of-state, don\'t forget to '}
       <a href={'https://hackduke.typeform.com/to/w4ZA3F?route_update_participant=xxxxx&email=' + email}
         className={classes.link}>{'upload'}</a>
-      {' receipts. We will reimburse up to $200 for flights and $50 for gas, but we won\'t be providing gas reimbursements for in-state travelers.'}
+      {' receipts. We will reimburse up to $200 for flights and $50 for gas, but we won\'t be providing gas reimbursements for people from schools with buses.'}
     </div>
   )
 }
