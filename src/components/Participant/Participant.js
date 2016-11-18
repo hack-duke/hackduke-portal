@@ -30,7 +30,7 @@ class Participant extends React.Component {
     const personalInfo = personalInfoFields.map(field => this.getInfo(field, props))
     const linkInfo = linkFields.map(field => this.getInfo(field, props))
     this.setState({personalInfo: this.filterInfo(personalInfo),
-                   linkInfo: this.filterInfo(linkInfo)})
+      linkInfo: this.filterInfo(linkInfo)})
   }
 
   getInfo (field, props) {
