@@ -16,6 +16,7 @@ export function requestParticipant () {
 }
 
 export function receiveParticipant (participant) {
+  localStorage.setItem('id', participant['person']['id'])
   return {
     type: RECEIVE_PARTICIPANT,
     payload: participant

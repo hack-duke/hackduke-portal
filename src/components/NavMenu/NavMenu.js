@@ -59,6 +59,11 @@ class NavMenu extends React.Component {
               to={'/application'}>APPLICATION</IndexLink>
           </div>
           <div className={classes.menuItem}>
+            <a className={classes.linkElement} href={'https://hardware.hackduke.org/#/user/' + localStorage.getItem('id')}>
+              HARDWARE
+            </a>
+          </div>
+          <div className={classes.menuItem}>
             <IndexLink onClick={this.props.logout} className={classes.linkElement}
               to={'/login'}>LOGOUT</IndexLink>
           </div>
