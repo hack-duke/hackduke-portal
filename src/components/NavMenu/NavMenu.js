@@ -38,6 +38,7 @@ class NavMenu extends React.Component {
   }
 
   render () {
+    console.log(this.props)
     return (
       <div>
         <button onClick={this.handleClick}
@@ -58,11 +59,13 @@ class NavMenu extends React.Component {
             <IndexLink onClick={this.handleClick} className={classes.linkElement}
               to={'/application'}>APPLICATION</IndexLink>
           </div>
-          <div className={classes.menuItem}>
-            <a className={classes.linkElement} href={'https://hardware.hackduke.org/#/user/' + localStorage.getItem('id')}>
-              HARDWARE
-            </a>
-          </div>
+          {this.props.participant ? (
+            <div className={classes.menuItem}>
+              <a className={classes.linkElement} href={'https://hardware.hackduke.org/#/user/' + this.props.participant['person']['id']}>
+                HARDWARE
+              </a>
+            </div>
+          ) : null}
           <div className={classes.menuItem}>
             <IndexLink onClick={this.props.logout} className={classes.linkElement}
               to={'/login'}>LOGOUT</IndexLink>
