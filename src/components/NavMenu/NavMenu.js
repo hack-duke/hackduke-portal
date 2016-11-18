@@ -34,7 +34,8 @@ class NavMenu extends React.Component {
   }
 
   static propTypes = {
-    logout: React.PropTypes.func.isRequired
+    logout: React.PropTypes.func.isRequired,
+    participant: React.PropTypes.object.isRequired
   }
 
   render () {

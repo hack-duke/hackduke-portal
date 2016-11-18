@@ -6,7 +6,7 @@ const mapDispatchToProps = {
   logout
 }
 
-const mapStateToProps = (state) => ({ 
+const mapStateToProps = (state) => ({
   participant: state.participant.participant
 })
 
