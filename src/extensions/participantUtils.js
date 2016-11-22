@@ -1,3 +1,3 @@
 export const personalInfoFields = ['Email', 'Gender', 'Phone', 'School', 'Graduation Year', 'Major',
-                                   'Ethnicity', 'Track']
+  'Ethnicity', 'Track']
 export const linkFields = ['Github', 'Resume', 'Website', 'Portfolio']

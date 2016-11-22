@@ -34,7 +34,8 @@ class NavMenu extends React.Component {
   }
 
   static propTypes = {
-    logout: React.PropTypes.func.isRequired
+    logout: React.PropTypes.func.isRequired,
+    participant: React.PropTypes.object.isRequired
   }
 
   render () {
@@ -58,6 +59,13 @@ class NavMenu extends React.Component {
             <IndexLink onClick={this.handleClick} className={classes.linkElement}
               to={'/application'}>APPLICATION</IndexLink>
           </div>
+          {this.props.participant ? (
+            <div className={classes.menuItem}>
+              <a className={classes.linkElement} href={'https://hardware.hackduke.org/#/user/' + this.props.participant['person']['id']}>
+                HARDWARE
+              </a>
+            </div>
+          ) : null}
           <div className={classes.menuItem}>
             <IndexLink onClick={this.props.logout} className={classes.linkElement}
               to={'/login'}>LOGOUT</IndexLink>
