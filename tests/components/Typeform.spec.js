@@ -20,7 +20,7 @@ describe('(Component) Typeform', () => {
 
   it('renders the Typeform with the correct src url', () => {
     expect(_wrapper.find('embed').at(0).node.props.src)
-    .to.eql('https://hackduke.typeform.com/to/IdQYtU?email=email@email.com&route_update_participant=xxxxx')
+    .to.eql('https://hackduke.typeform.com/to/dB8QHB?route_receive_participant=xxxxx&email=email@email.com')
   })
 
 })
