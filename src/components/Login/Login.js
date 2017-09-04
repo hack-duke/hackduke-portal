@@ -83,7 +83,7 @@ class Login extends React.Component {
   }
 
   loginBoxHeight () {
-    return this.state.sendPassword ? '400px' : '480px'
+    return this.state.sendPassword ? '350px' : '430px'
   }
 
   handleMessageVisibility () {
@@ -153,14 +153,6 @@ class Login extends React.Component {
           <button id='action' className={classes.loginButton} onClick={this.handleButtonClick}>
             {this.handleButtonText()}
           </button>
-          {this.state.sendPassword || this.props.authStatus === AuthenticationStatus.TEMPORARY ? null : (
-            <a href={'https://dayof.hackduke.org'}>
-              <button id='action' className={classes.registerButton}>
-                Day of Info
-              </button>
-            </a>
-            )
-          }
           <button className={classes.textButton} onClick={this.handlePasswordClick}> {this.state.bottomText}
             {this.handlePasswordText()}
           </button>

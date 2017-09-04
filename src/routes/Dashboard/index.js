@@ -15,7 +15,7 @@ export default (store) => ({
       if (email === '' || email === null) {
         email = document.cookie.split('=')[1]
       }
-      store.dispatch(fetchParticipant(email, 'code_for_good', 2016, 'fall'))
+      store.dispatch(fetchParticipant(email, 'code_for_good', 2017, 'fall'))
 
       /*  Return getComponent   */
       cb(null, Dashboard)

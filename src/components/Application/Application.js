@@ -14,7 +14,7 @@ class Application extends React.Component {
       if (email === '' || email === null) {
         email = document.cookie.split('=')[1]
       }
-      that.props.fetchParticipant(email, 'code_for_good', 2016, 'fall')
+      that.props.fetchParticipant(email, 'code_for_good', 2017, 'fall')
     })
   }
 
