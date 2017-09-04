@@ -153,14 +153,14 @@ class Login extends React.Component {
           <button id='action' className={classes.loginButton} onClick={this.handleButtonClick}>
             {this.handleButtonText()}
           </button>
-					{this.state.sendPassword || this.props.authStatus === AuthenticationStatus.TEMPORARY ? null : (
-					<a href={'https://www.hackduke.org/'}>
-						<button id='action' className={classes.registerButton}>
-							Main Site
-						</button>
-					</a>
-					)
-					}
+          {this.state.sendPassword || this.props.authStatus === AuthenticationStatus.TEMPORARY ? null : (
+          <a href={'https://www.hackduke.org/'}>
+            <button id='action' className={classes.registerButton}>
+              Main Site
+            </button>
+          </a>
+          )
+          }
           <button className={classes.textButton} onClick={this.handlePasswordClick}> {this.state.bottomText}
             {this.handlePasswordText()}
           </button>
