@@ -8,9 +8,8 @@ class Typeform extends React.Component {
   }
 
   render () {
-    let baseUrl = 'https://hackduke.typeform.com/to/IdQYtU?email='
+    let baseUrl = 'https://hackduke.typeform.com/to/dB8QHB?route_receive_participant=xxxxx&email='
     baseUrl += this.props.email
-    baseUrl += '&route_update_participant=xxxxx'
     return (
       <div className={classes.frameContainer}>
         <div className={classes.spinner}>
