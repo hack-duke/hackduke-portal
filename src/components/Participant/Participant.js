@@ -71,19 +71,19 @@ class Participant extends React.Component {
           <SpacedInfo titles={this.state.personalInfo.map(info => info['title'])}
             descriptions={this.state.personalInfo.map(info => info['description'])} />
         </div>
-        {/* 
+
         <div className={classes.lineSeparator} />
 
         <div className={classes.leftPadding}>
           <h1 className={classes.spacedInfoSeparator}> More Info </h1>
-          {this.renderList('Dietary Restrictions', this.props.person['dietary_restrictions'].join(', '))}
+          {/* {this.renderList('Dietary Restrictions', this.props.person['dietary_restrictions'].join(', '))} */}
           {this.renderList('Skills', this.props.participant['skills'].join(', '))}
           {Object.keys(this.state.linkInfo).length > 0 ? (
             <LinkInfo titles={this.state.linkInfo.map(info => info['title'])}
               links={this.state.linkInfo.map(info => info['description'])} />
           ) : null}
         </div>
-        */}
+
         <div className={classes.lineSeparator} />
 
         <div className={classes.leftPadding}>
