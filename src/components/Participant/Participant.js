@@ -71,7 +71,7 @@ class Participant extends React.Component {
           <SpacedInfo titles={this.state.personalInfo.map(info => info['title'])}
             descriptions={this.state.personalInfo.map(info => info['description'])} />
         </div>
-
+        {/* 
         <div className={classes.lineSeparator} />
 
         <div className={classes.leftPadding}>
@@ -83,7 +83,7 @@ class Participant extends React.Component {
               links={this.state.linkInfo.map(info => info['description'])} />
           ) : null}
         </div>
-
+        */}
         <div className={classes.lineSeparator} />
 
         <div className={classes.leftPadding}>
