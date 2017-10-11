@@ -50,7 +50,7 @@ function generateAcceptedJSX (email) {
       <div className={classes.bold}>
         Wed, 10/18.
       </div>
-      {' Our process has been more rigorous than in previous years, so you must confirm to guarantee your spot. We won\'t be accepting walk-ins the day of.'}
+      {' Our process has been more rigorous than in previous years, so you must confirm to guarantee your spot.'}
     </div>
   )
 }
