@@ -43,7 +43,7 @@ function generateAcceptedJSX (email) {
     <div>
       {'Congratulations! You’ve been accepted! Please'}
       {' '}
-      <a href={'https://hackduke.typeform.com/to/Dq5qeE?route_update_participant=xxxxx&email=' + email}
+      <a href={'https://hackduke.typeform.com/to/GeahBc?route_update_participant=xxxxx&email=' + email}
         className={classes.link}>{'confirm'}</a>
       {' '}
       {'you\'re coming by '}
