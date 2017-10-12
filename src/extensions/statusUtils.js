@@ -8,7 +8,7 @@ export const statusColorMap = {
 }
 
 export const statusMessageMap = {
-  'registered': 'Thanks for registering for HackDuke! Please check back later for your status. Good luck!',
+  'registered': 'Thanks for registering for HackDuke! You should have recieved an email about your status!',
   'rejected': 'Unfortunately, we were unable to offer you a spot at HackDuke this year. Thank you for your interest, and we hope to hear from you next year. ',
   'confirmed': 'Whoo! Thanks for confirming your attendance. We can’t wait to see you at Duke!',
   'waitlisted': 'Hang tight! You’ve been put on our waitlist. We will send you an email if a spot opens up!',
