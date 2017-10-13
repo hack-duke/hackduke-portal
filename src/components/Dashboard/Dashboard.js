@@ -13,6 +13,8 @@ class Dashboard extends React.Component {
   renderStatus (status) {
     if (status === 'REJECTED') {
       return 'Not Accepted'
+    } else if (status === 'REGISTERED') {
+      return 'Decisions Are Out'
     }
     return status
   }
